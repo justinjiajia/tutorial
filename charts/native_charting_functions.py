@@ -2,16 +2,74 @@ import streamlit as st
 
 st.set_page_config(layout="wide")
 
+
+with st.echo():
+    import pandas as pd
+    stocks = pd.read_csv('https://raw.githubusercontent.com/justinjiajia/datafiles/main/stocks_l.csv', 
+                         parse_dates=['date'], date_format="%y/%m/%d")
+
+
+
+st.write(stocks)
+
+
+st.markdown("#### :blue[Source code to run]")
+
+code ="""
+st.line_chart(data=stocks, x="date", y="return", color="symbol")
+"""
+with st.container(border=True):
+    st.code(code)
+
+
+st.markdown("#### :red[Rendered output]") 
+
+with st.container(border=True):
+    st.line_chart(data=stocks, x="date", y="return", color="symbol", 
+                  width=600, height=500, use_container_width=False)
+
+
+
+
+with st.expander("Show documentation"):
+    st.write(st.line_chart.__doc__)
+
+
+
+
+st.markdown("#### :blue[Source code to run]")
+
+
+
+code ="""
+st.area_chart(data=stocks, x="date", y="return", color="symbol")
+"""
+
+with st.container(border=True):
+    st.code(code)
+
+st.markdown("#### :red[Rendered output]") 
+with st.container(border=True):
+    st.area_chart(data=stocks, x="date", y="return", color="symbol", 
+                 width=600, height=500, use_container_width=False)
+
+
+with st.expander("Show documentation"):
+    st.write(st.area_chart.__doc__)
+st.divider()
+
+
 with st.echo():
     import pandas as pd
     iris = pd.read_csv('https://raw.githubusercontent.com/mwaskom/seaborn-data/master/iris.csv')
-    
+
 st.write(iris)
+
 
 col1, col2 = st.columns(2)
 
 iris_x = col1.selectbox("Choose variable for coordinate x", ["sepal_length", "sepal_width", "petal_length", "petal_width"])
-iris_y = col2.selectbox("Choose variable for coordinate y", ["sepal_length", "sepal_width", "petal_length", "petal_width"])
+iris_y = col2.selectbox("Choose variable for coordinate y", ["sepal_length", "sepal_width", "petal_length", "petal_width"], index=1)
 iris_size =  st.selectbox("Choose variable for size", ["sepal_length", "sepal_width", "petal_length", "petal_width"], 
                      index=None)
 iris_color = st.checkbox("Use color to annotate species")
@@ -42,6 +100,8 @@ with st.container(border=True):
                          width=600, height=500, use_container_width=False)
 
 
+with st.expander("Show documentation"):
+    st.write(st.scatter_chart.__doc__)
 
 st.divider()
 
@@ -50,8 +110,7 @@ with st.echo():
     tips = pd.read_csv('https://raw.githubusercontent.com/mwaskom/seaborn-data/master/tips.csv')
 
 
-with st.expander("Show documentation"):
-    st.write(st.scatter_chart.__doc__)
+
 
 st.write(tips)
 
@@ -85,3 +144,34 @@ with st.container(border=True):
 
 with st.expander("Show documentation"):
     st.write(st.bar_chart.__doc__)
+
+
+st.divider()
+
+
+with st.echo():
+    import pandas as pd
+    us_city_pop = pd.read_csv("https://raw.githubusercontent.com/plotly/datasets/master/2014_us_cities.csv")
+    us_city_pop["pop"] = us_city_pop["pop"] / 20
+
+
+st.write(us_city_pop)
+
+code = """
+st.map(us_city_pop, latitude="lat", longitude="lon", size="pop")
+"""
+
+
+st.markdown("#### :blue[Source code to run]")
+
+with st.container(border=True):
+    st.code(code)
+
+st.markdown("#### :red[Rendered output]") 
+
+with st.container(border=True):
+    st.map(us_city_pop, latitude="lat", longitude="lon", size="pop", zoom=4)
+
+
+with st.expander("Show documentation"):
+    st.write(st.map.__doc__)
