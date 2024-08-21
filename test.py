@@ -1,22 +1,20 @@
 import streamlit as st
+import subprocess
+import time
 
-if 'visible' not in st.session_state:
-    st.session_state.visible = False
+with st.form("code"):
+    code = st.text_area("type in your code", height=200, key="code")
+    submitted = st.form_submit_button("submit your code")
 
-def submit_to_show():
-    st.session_state.visible = True
 
-def submit_to_hide():
-    st.session_state.visible = False  
+if submitted:
+    with open("run.py", "w") as f:
+        f.write(code)
+    
+    proc = subprocess.run(["python", "run.py"], capture_output=True, check=True)
+    
+    st.write(proc.stdout.decode("utf-8"))    
 
-if st.session_state.visible:
-    st.write(f"**Message:** {st.session_state.txt}")
-
-st.text_input("Enter your message", "hey, what's up?", 
-              key="txt")
-
-if not st.session_state.visible:
-    st.button('Show message', on_click=submit_to_show)
-else:    
-    st.button('Hide message', on_click=submit_to_hide)
-
+# https://realpython.com/python-subprocess/
+# https://docs.python.org/3/library/subprocess.html#subprocess.run
+# https://docs.python.org/3/library/io.html    

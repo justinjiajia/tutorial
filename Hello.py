@@ -2,6 +2,10 @@ import streamlit as st
 
 data_elements = st.Page("page_elements/data_elements.py", title="Data elements")
 media_elements = st.Page("page_elements/media_elements.py", title="Media elements")
+
+visual_intro = st.Page("charts/visual_intro.py", title="Introduction to visualization")
+native_charts = st.Page("charts/native_charting_functions.py", title="Native charting functions")
+
 intro = st.Page("widgets/intro.py", title="Introduction")
 create_dynamic_chart = st.Page("widgets/create_dynamic_chart.py", title="Practice: Create dynamic chart")
 defaults = st.Page("widgets/tweaking_defaults.py", title="Tweaking defaults")
@@ -28,11 +32,12 @@ check_state_item = st.Page("sessions/check_state_item.py", title="Check persiste
 test = st.Page("test.py", title="Test")
 
 elements_pages = [data_elements, media_elements]
+charts_pages = [ visual_intro, native_charts ]
 widgets_pages = [intro, create_dynamic_chart, defaults, button, keys, value_init, callbacks, show_hide_message, display_image, forms, cleanup]
 sessions_pages = [sessions, check_state_item]
 layouts_pages = [sidebar, columns, containers, chat_UI, tabs]
 
-pg = st.navigation({"Page elements": elements_pages, "Widgets": widgets_pages,  "Sessions": sessions_pages, 
+pg = st.navigation({"Page elements": elements_pages, "Charts": charts_pages, "Widgets": widgets_pages,  "Sessions": sessions_pages, 
                     "Layouts": layouts_pages, 
                     "Test": [test]})
 
