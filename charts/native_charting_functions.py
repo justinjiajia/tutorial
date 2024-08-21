@@ -3,6 +3,7 @@ import streamlit as st
 st.set_page_config(layout="wide")
 
 
+
 with st.echo():
     import pandas as pd
     stocks = pd.read_csv('https://raw.githubusercontent.com/justinjiajia/datafiles/main/stocks_l.csv', 
@@ -13,7 +14,7 @@ with st.echo():
 st.write(stocks)
 
 
-st.markdown("#### :blue[Source code to run]")
+st.markdown("### [<code>st.line_chart</code>](https://docs.streamlit.io/develop/api-reference/charts/st.line_chart)", unsafe_allow_html=True)
 
 code ="""
 st.line_chart(data=stocks, x="date", y="return", color="symbol")
@@ -35,10 +36,9 @@ with st.expander("Show documentation"):
     st.write(st.line_chart.__doc__)
 
 
+st.divider()
 
-
-st.markdown("#### :blue[Source code to run]")
-
+st.markdown("### [<code>st.area_chart</code>](https://docs.streamlit.io/develop/api-reference/charts/st.area_chart)", unsafe_allow_html=True)
 
 
 code ="""
@@ -56,6 +56,7 @@ with st.container(border=True):
 
 with st.expander("Show documentation"):
     st.write(st.area_chart.__doc__)
+
 st.divider()
 
 
@@ -65,6 +66,9 @@ with st.echo():
 
 st.write(iris)
 
+
+
+st.markdown("### [<code>st.scatter_chart</code>](https://docs.streamlit.io/develop/api-reference/charts/st.scatter_chart)", unsafe_allow_html=True)
 
 col1, col2 = st.columns(2)
 
@@ -82,7 +86,7 @@ else:
     code = f"""
     st.scatter_chart(iris, x="{iris_x}", y="{iris_y}"{', color="species"' if iris_color else ""})
     """
-st.markdown("#### :blue[Source code to run]")
+
 
 with st.container(border=True):
     st.code(code)
@@ -114,7 +118,7 @@ with st.echo():
 
 st.write(tips)
 
-
+st.markdown("### [<code>st.bar_chart</code>](https://docs.streamlit.io/develop/api-reference/charts/st.bar_chart)", unsafe_allow_html=True)
 
 col3, col4 = st.columns(2)
 tips_x = col3.selectbox("Choose variable for coordinate x", ["sex", "day", "smoker", "time"])
@@ -132,7 +136,6 @@ else:
     st.bar_chart(tips, x="{tips_x}", y="{tips_y}"{', horizontal=True' if tips_horizontal else ""})
     """
 
-st.markdown("#### :blue[Source code to run]")
 
 with st.container(border=True):
     st.code(code)
@@ -160,9 +163,7 @@ st.write(us_city_pop)
 code = """
 st.map(us_city_pop, latitude="lat", longitude="lon", size="pop")
 """
-
-
-st.markdown("#### :blue[Source code to run]")
+st.markdown("### [<code>st.map</code>](https://docs.streamlit.io/develop/api-reference/charts/st.map)", unsafe_allow_html=True)
 
 with st.container(border=True):
     st.code(code)

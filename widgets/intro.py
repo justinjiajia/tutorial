@@ -3,9 +3,9 @@ import streamlit as st
  
 st.set_page_config(layout="wide")
 
-st.markdown("### Widgets that return string values")
+st.markdown("## Widgets that return string values")
 
-st.markdown("#### [<code>st.selectbox</code>](https://docs.streamlit.io/develop/api-reference/widgets/st.selectbox)", unsafe_allow_html=True)
+st.markdown("### [<code>st.selectbox</code>](https://docs.streamlit.io/develop/api-reference/widgets/st.selectbox)", unsafe_allow_html=True)
 with st.container(border=True):
     with st.echo("below"):
         # default to the 1st option
