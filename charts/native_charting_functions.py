@@ -49,6 +49,10 @@ with st.echo():
     import pandas as pd
     tips = pd.read_csv('https://raw.githubusercontent.com/mwaskom/seaborn-data/master/tips.csv')
 
+
+with st.expander("Show documentation"):
+    st.write(st.scatter_chart.__doc__)
+
 st.write(tips)
 
 
@@ -78,3 +82,6 @@ st.markdown("#### :red[Rendered output]")
 with st.container(border=True):
     st.bar_chart(tips, x=tips_x, y=tips_y, color=tips_color, horizontal=tips_horizontal,
                  width=600, height=500, use_container_width=False)
+
+with st.expander("Show documentation"):
+    st.write(st.bar_chart.__doc__)
