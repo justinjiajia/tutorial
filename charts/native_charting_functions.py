@@ -47,13 +47,10 @@ st.divider()
 
 with st.echo():
     import pandas as pd
-    tips = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/tips.csv')
+    tips = pd.read_csv('https://raw.githubusercontent.com/mwaskom/seaborn-data/master/tips.csv')
 
 st.write(tips)
 
-
-
-st.markdown("#### :blue[Source code to run]")
 
 
 col3, col4 = st.columns(2)
@@ -72,11 +69,12 @@ else:
     st.bar_chart(tips, x="{tips_x}", y="{tips_y}"{', horizontal=True' if tips_horizontal else ""})
     """
 
-st.markdown("#### :red[Rendered output]") 
+st.markdown("#### :blue[Source code to run]")
+
 with st.container(border=True):
     st.code(code)
 
-
+st.markdown("#### :red[Rendered output]") 
 with st.container(border=True):
     st.bar_chart(tips, x=tips_x, y=tips_y, color=tips_color, horizontal=tips_horizontal,
                  width=600, height=500, use_container_width=False)
