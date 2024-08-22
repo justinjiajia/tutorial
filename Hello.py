@@ -5,6 +5,7 @@ media_elements = st.Page("page_elements/media_elements.py", title="Media element
 
 visual_intro = st.Page("charts/visual_intro.py", title="Introduction to visualization")
 native_charts = st.Page("charts/native_charting_functions.py", title="Native charting functions")
+compatible_libs = st.Page("charts/compatible_libs.py", title="Optional: Using other libraries")
 
 intro = st.Page("widgets/intro.py", title="Introduction")
 create_dynamic_chart = st.Page("widgets/create_dynamic_chart.py", title="Practice: Create dynamic chart")
@@ -32,7 +33,7 @@ check_state_item = st.Page("sessions/check_state_item.py", title="Check persiste
 test = st.Page("test.py", title="Test")
 
 elements_pages = [data_elements, media_elements]
-charts_pages = [ visual_intro, native_charts ]
+charts_pages = [ visual_intro, native_charts, compatible_libs]
 widgets_pages = [intro, create_dynamic_chart, defaults, button, keys, value_init, callbacks, show_hide_message, display_image, forms, cleanup]
 sessions_pages = [sessions, check_state_item]
 layouts_pages = [sidebar, columns, containers, chat_UI, tabs]

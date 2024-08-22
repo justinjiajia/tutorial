@@ -155,10 +155,12 @@ st.divider()
 with st.echo():
     import pandas as pd
     us_city_pop = pd.read_csv("https://raw.githubusercontent.com/plotly/datasets/master/2014_us_cities.csv")
-    us_city_pop["pop"] = us_city_pop["pop"] / 20
+    
 
 
 st.write(us_city_pop)
+
+us_city_pop["pop"] = us_city_pop["pop"] / 20
 
 code = """
 st.map(us_city_pop, latitude="lat", longitude="lon", size="pop")
@@ -176,3 +178,6 @@ with st.container(border=True):
 
 with st.expander("Show documentation"):
     st.write(st.map.__doc__)
+
+
+
