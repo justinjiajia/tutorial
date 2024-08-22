@@ -4,8 +4,8 @@ data_elements = st.Page("page_elements/data_elements.py", title="Data elements")
 media_elements = st.Page("page_elements/media_elements.py", title="Media elements")
 
 visual_intro = st.Page("charts/visual_intro.py", title="Introduction to visualization")
-native_charts = st.Page("charts/native_charting_functions.py", title="Native charting functions")
-compatible_libs = st.Page("charts/compatible_libs.py", title="Optional: Using other libraries")
+native_charts = st.Page("charts/builtin_charting_functions.py", title="Built-in charting functions")
+compatible_libs = st.Page("charts/compatible_libs.py", title="Optional: Using external libraries")
 
 intro = st.Page("widgets/intro.py", title="Introduction")
 create_dynamic_chart = st.Page("widgets/create_dynamic_chart.py", title="Practice: Create dynamic chart")

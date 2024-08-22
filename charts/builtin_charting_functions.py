@@ -13,6 +13,7 @@ with st.echo():
 
 st.write(stocks)
 
+st.divider()
 
 st.markdown("### [<code>st.line_chart</code>](https://docs.streamlit.io/develop/api-reference/charts/st.line_chart)", unsafe_allow_html=True)
 
@@ -66,7 +67,7 @@ with st.echo():
 
 st.write(iris)
 
-
+st.divider()
 
 st.markdown("### [<code>st.scatter_chart</code>](https://docs.streamlit.io/develop/api-reference/charts/st.scatter_chart)", unsafe_allow_html=True)
 
@@ -118,6 +119,8 @@ with st.echo():
 
 st.write(tips)
 
+st.divider()
+
 st.markdown("### [<code>st.bar_chart</code>](https://docs.streamlit.io/develop/api-reference/charts/st.bar_chart)", unsafe_allow_html=True)
 
 col3, col4 = st.columns(2)
@@ -159,6 +162,8 @@ with st.echo():
 
 
 st.write(us_city_pop)
+
+st.divider()
 
 us_city_pop["pop"] = us_city_pop["pop"] / 20
 

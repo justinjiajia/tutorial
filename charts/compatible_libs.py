@@ -6,7 +6,7 @@ st.set_page_config(layout="wide")
 
 
 st.markdown("""
-Streamlit supports several popular charting libraries specializing in visiualization, including Matplotlib for basic plotting and Plotly for interactive plotting. 
+Streamlit supports several popular charting libraries specializing in visiualization, including Matplotlib for basic plotting and Plotly and Altair for interactive plotting. 
 """)
 
 with st.echo():
