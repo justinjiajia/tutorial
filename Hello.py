@@ -3,7 +3,7 @@ import streamlit as st
 data_elements = st.Page("page_elements/data_elements.py", title="Data elements")
 media_elements = st.Page("page_elements/media_elements.py", title="Media elements")
 
-visual_intro = st.Page("charts/visual_intro.py", title="Introduction to visualization")
+visual_intro = st.Page("charts/visual_intro.py", title="Introduction to data visualization")
 native_charts = st.Page("charts/builtin_charting_functions.py", title="Built-in charting functions")
 supported_libs = st.Page("charts/supported_libs.py", title="Optional: Using external libraries")
 

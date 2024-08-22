@@ -11,11 +11,11 @@ with st.container(border=True):
         
 with st.container(border=True):
     with st.echo():
-        st.image("cat.jpg", width=400)
+        st.image("static/cat.jpg", width=400)
 
 with st.container(border=True):
     with st.echo():
-        st.image(["cat.jpg", "dog.jpg", "owl.jpg"], width=200)
+        st.image(["static/cat.jpg", "static/dog.jpg", "static/owl.jpg"], width=200)
 
 with st.expander("Show documentation"):
     st.write(st.image.__doc__)

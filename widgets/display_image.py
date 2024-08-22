@@ -35,6 +35,8 @@ if st.session_state.clicked:
         st.error("Cannot find the image!")    
 
 
-url = st.text_input("Enter the URL of an image here", key="_url")
+url = st.text_input("Enter the URL of an image here", 
+                    "https://hkust.edu.hk/sites/default/files/styles/news_image_single/public/2023-06/HKUST Piazza_0.jpg",
+                    key="_url")
 st.button('Submit', on_click=click_button)
 
