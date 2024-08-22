@@ -7,7 +7,7 @@ st.set_page_config(layout="wide")
 with st.echo():
     import pandas as pd
     stocks = pd.read_csv('https://raw.githubusercontent.com/justinjiajia/datafiles/main/stocks_l.csv', 
-                         parse_dates=['date'], date_format="%y/%m/%d")
+                         parse_dates=['date'], date_format="%Y-%m-%d")
 
 
 

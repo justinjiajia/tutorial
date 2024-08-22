@@ -1,27 +1,26 @@
 import streamlit as st
-from vega_datasets import data
 
-st.set_page_config(layout="centered")
-
+st.set_page_config(layout="wide")
 
 
-code ="""
-from vega_datasets import data
-source = data.stocks()
-"""
+with st.echo():
+    import pandas as pd
+    source = pd.read_csv("https://raw.githubusercontent.com/vega/vega-datasets/main/data/stocks.csv", 
+                         parse_dates=['date'], date_format="%b %d %Y")
 
 
-st.code(code)
-
-source = data.stocks()
 
 st.dataframe(source)
 
-source = data.stocks()
-
 with st.container(border=True):
-    stock = st.selectbox("Select a stock", source.symbol.unique())
-    year = st.slider("Select a year", 2004, 2010)
-    st.markdown(f"### Prices for `{stock}` in {year}<br>", unsafe_allow_html=True)
-    chart_data = source.query(f"date < {year + 1} and date >= {year} and symbol == '{stock}'")
-    st.area_chart(chart_data, x="date", y="price")
+    stocks = st.multiselect("Select stocks for comparison", source.symbol.unique(), ['AMZN', 'AAPL'])
+    
+    all = st.checkbox("Show prices for the whole period")
+    year = st.slider("Select a year", 2005, 2009, disabled=all)
+    st.markdown(f"### Stock prices in {year}<br>", unsafe_allow_html=True)
+    if not all:
+        chart_data = source.query(f"date < {year + 1} and date >= {year} and symbol in {stocks}")
+    else:
+        chart_data = source.query(f"symbol in {stocks}")  
+    st.line_chart(chart_data, x="date", y="price", color="symbol", width=600, height=500, use_container_width=False)
+
