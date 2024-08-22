@@ -18,6 +18,10 @@ with st.container(border=True):
     with st.echo():
         st.write(df)
 
+st.divider()
+
+st.markdown("### [<code>st.dataframe</code>](https://docs.streamlit.io/develop/api-reference/data/st.dataframe)", unsafe_allow_html=True)
+
 with st.container(border=True):
     with st.echo():
         st.dataframe(df)
@@ -25,29 +29,59 @@ with st.container(border=True):
 with st.expander("Show documentation"):
     st.write(st.dataframe.__doc__)
     
+st.divider()
+
+st.markdown("### [<code>st.table</code>](https://docs.streamlit.io/develop/api-reference/data/st.table)", unsafe_allow_html=True)
+
 with st.container(border=True):
     with st.echo():
 # display DataFrames in a static table
         st.table(df)
 
+with st.expander("Show documentation"):
+    st.write(st.table.__doc__)
+
 st.divider()
 
-st.markdown("We can customize the way to display a DataFrame via `column_config`, `hide_index`, or `column_order`:")
 
-st.markdown("""When working with data in Streamlit, the `st.column_config` class, specifically designed for the `column_config` parameter, is a powerful tool for configuring data display and interaction.
-It provides a suite of methods to tailor your columns to various data types - from simple text and numbers to lists, URLs, images, and more.
+
+st.markdown("### [<code>st.data_editor</code>](https://docs.streamlit.io/develop/api-reference/data/st.data_editor)", unsafe_allow_html=True)
+
+with st.container(border=True):
+    with st.echo():
+# display DataFrames in a static table
+        st.data_editor(df, disabled=['url'])
+
+with st.expander("Show documentation"):
+    st.write(st.data_editor.__doc__)
+
+st.divider()
+
+st.markdown("### [<code>st.column_config</code>](https://docs.streamlit.io/develop/api-reference/data/st.column_config)", unsafe_allow_html=True)
+
+
+st.markdown("""The `st.column_config` class is a powerful tool for configuring data display and interaction.
+It provides a suite of methods to tailor your columns to various data types, translating data into user-friendly formats or utilizing charts and progress bars for clearer data display.
 """)
+
+
+ # random.seed(125) below is critical; otherwise, every rerun generates a set of different values for the view_history_column
+        # resulting in a complete redraw of the data editor table
+        # no incremental change can be retained (e.g., uncheck a checkbox)
+#       
 
 with st.container(border=True):
     with st.echo():
         import random
         import pandas as pd
 
+        random.seed(125)
+        
         df = pd.DataFrame(
             {
                 "name": ["Roadmap", "Extras", "Issues"],
                 "url": ["https://roadmap.streamlit.app", "https://extras.streamlit.app", "https://issues.streamlit.app"],
-                "stars": [842, 503, 1016],
+                "stars": [842, 503, 938],
                 "views_history": [[random.randint(0, 5000) for _ in range(30)] for _ in range(3)],
                 "in_progress": [True, False, True]
             }
@@ -59,14 +93,28 @@ with st.container(border=True):
         st.dataframe(
             df, 
             column_config={"name": "App name",
-                        "url": st.column_config.LinkColumn("App URL"),
-                        "stars": st.column_config.NumberColumn("Stars",
-                                                                help="Number of stars on GitHub",
-                                                                format="%d ⭐"),
-                        "views_history": st.column_config.LineChartColumn("Views", y_min=0, y_max=5000, 
-                                                                            help="Number of views in the past 30 days"),
-                        "in_progress": st.column_config.CheckboxColumn("In progress?", help="Is the development is still in progress?")
-                        },
+                           "url": st.column_config.LinkColumn("App URL"),
+                           "stars": st.column_config.NumberColumn("Stars", help="Number of stars on GitHub", format="%d ⭐"),
+                           "views_history": st.column_config.BarChartColumn("Views", y_min=0, y_max=5000, 
+                                                                              help="Number of views in the past 30 days"),
+                           "in_progress": "In progress?"},
             hide_index=True,
             column_order=("name", "url", "views_history", "stars", "in_progress")
         )
+
+
+with st.container(border=True):
+    with st.echo():
+        st.data_editor(
+            df, 
+            column_config={"name": "App name",
+                           "url": st.column_config.LinkColumn("App URL", disabled=True),
+                           "stars": st.column_config.ProgressColumn("Stars", help="Number of stars on GitHub", 
+                                                                    max_value=1000, format="%d ⭐"),
+                           "views_history": st.column_config.LineChartColumn("Views", y_min=0, y_max=5000, 
+                                                                              help="Number of views in the past 30 days"),
+                           "in_progress": st.column_config.SelectboxColumn("In progress?")}
+        )
+
+
+st.write([col for col in dir(st.column_config) if col.endswith("Column")])
