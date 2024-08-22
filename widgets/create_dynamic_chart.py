@@ -2,6 +2,7 @@ import streamlit as st
 
 st.set_page_config(layout="wide")
 
+st.markdown("### :material/dataset: Data to use")
 
 with st.echo():
     import pandas as pd

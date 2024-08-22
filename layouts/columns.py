@@ -18,7 +18,7 @@ To add elements to the returned container, we can use the `with` statement (pref
 
 
 
-st.markdown("#### :blue[Source code to run]")
+st.markdown("#### :material/code_blocks: :blue[Source code to run]")
 
 code = """col1, col2, col3 = st.columns(3)
 
@@ -67,7 +67,7 @@ col1.image("cat.jpg")
 col2.header("A dog")
 col2.image("dog.jpg")"""
 
-st.markdown("#### :blue[Source code to run]")
+st.markdown("#### :material/code_blocks: :blue[Source code to run]")
 
 with st.container(border=True):
     st.code(code)
@@ -92,7 +92,7 @@ st.markdown("""The `vertical_alignment` argument of `st.columns` allows us to cu
 v_align = st.selectbox("Customize vertical alignment",
                        ["top", "center", "bottom"])
 
-st.markdown("#### :blue[Source code to run]")
+st.markdown("#### :material/code_blocks: :blue[Source code to run]")
 
 code = f"""left, middle, right = st.columns(3, vertical_alignment="{v_align}")
 left.image("cat.jpg")

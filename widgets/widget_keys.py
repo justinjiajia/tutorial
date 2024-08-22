@@ -13,7 +13,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
-st.markdown("#### :blue[Source code to run]")
+st.markdown("#### :material/code_blocks: :blue[Source code to run]")
 
 code = """x = st.slider('Choose a value', 0, 10)
 y = st.slider('Choose a value', 0, 10)"""
@@ -21,7 +21,7 @@ y = st.slider('Choose a value', 0, 10)"""
 with st.container(border=True):
     st.code(code)
 
-st.markdown("#### :red[Rendered output]")
+st.markdown("#### :material/widgets: :red[Rendered output]")
 
 with st.container(border=True):
     try:
@@ -39,7 +39,7 @@ st.divider()
 
 st.markdown("This can be solved either by using different arguments when creating the same type of widgets:")
 
-st.markdown("#### :blue[Source code to run]")
+st.markdown("#### :material/code_blocks: :blue[Source code to run]")
 
 code = """x = st.slider('Choose a value for variable x', 0, 10)
 y = st.slider('Choose a value for variable y', 0, 10, step=2)"""
@@ -47,7 +47,7 @@ y = st.slider('Choose a value for variable y', 0, 10, step=2)"""
 with st.container(border=True):
     st.code(code)
 
-st.markdown("#### :red[Rendered output]")
+st.markdown("#### :material/widgets: :red[Rendered output]")
 
 with st.container(border=True):
     x = st.slider('Choose a value for variable x', 0, 10)
@@ -60,7 +60,7 @@ st.divider()
 
 st.markdown("or by assigning widgets unique keys:")
 
-st.markdown("#### :blue[Source code to run]")
+st.markdown("#### :material/code_blocks: :blue[Source code to run]")
 
 code = """x = st.slider('Choose a value', 0, 10, key="a")
 y = st.slider('Choose a value', 0, 10, key="b")"""
@@ -68,7 +68,7 @@ y = st.slider('Choose a value', 0, 10, key="b")"""
 with st.container(border=True):
     st.code(code)
 
-st.markdown("#### :red[Rendered output]")
+st.markdown("#### :material/widgets: :red[Rendered output]")
 
 with st.container(border=True):
     x = st.slider('Choose a value', 0, 10, key="a")
@@ -77,7 +77,7 @@ with st.container(border=True):
 st.markdown("When a widget is associated with a key, its value will be automatically added as a new item to `st.session_state`, which is a dictionary-like object that maintains the state of a user session.")
 st.markdown("Then, we can use either an attribute-style or a dictionary-style syntax to read that item from `st.session_state`:")
 
-st.markdown("#### :blue[Source code to run]")
+st.markdown("#### :material/code_blocks: :blue[Source code to run]")
 
 code = """st.write(f"The value of variable `x` is: `{st.session_state.a}`") 
 st.write(f"The value of variable `y` is: `{st.session_state['b']}`")"""
@@ -85,7 +85,7 @@ st.write(f"The value of variable `y` is: `{st.session_state['b']}`")"""
 with st.container(border=True):
     st.code(code)
     
-st.markdown("#### :red[Rendered output]")
+st.markdown("#### :material/widgets: :red[Rendered output]")
 
 with st.container(border=True):    
     st.markdown(f"The value of variable `x` is: `{st.session_state.a}`")       

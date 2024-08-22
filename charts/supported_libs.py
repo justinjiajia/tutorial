@@ -6,8 +6,14 @@ st.set_page_config(layout="wide")
 
 
 st.markdown("""
-Streamlit supports several popular charting libraries specializing in visiualization, including Matplotlib for basic plotting and Plotly and Altair for interactive plotting. 
+As we've seen, Streamlit built-in charting functions can be useful if we want to visualize data quickly. However, we trade off speed for customizability.
+
+In production, more powerful libraries, such as Matplotlib, Seaborn, Plotly, and Altair, would be able to give us the flexibility and customizability we want. 
+
+Streamlit supports six popular Python visualization libraries. The rest of this section will provide a walk-through of Plotly and Altair for interactive plotting.
 """)
+
+st.markdown("### :material/dataset: Data to use")
 
 with st.echo():
     import pandas as pd
@@ -20,6 +26,8 @@ st.divider()
 
 st.markdown("### [<code>st.plotly_chart</code>](https://docs.streamlit.io/develop/api-reference/charts/st.plotly_chart)", unsafe_allow_html=True)
 
+
+st.markdown("#### :material/code_blocks: :blue[Source code to run]")
 
 code = """
 # to run this snippet on your computer, you need to first install Plotly using pip install plotly
@@ -41,6 +49,7 @@ st.plotly_chart(fig, use_container_width=False)
 with st.container(border=True):
     st.code(code)
 
+st.markdown("#### :material/animation: :red[Rendered output]") 
 
 with st.container(border=True):
     # https://plotly.com/python/discrete-color/
@@ -57,6 +66,9 @@ with st.container(border=True):
 st.divider()
 
 st.markdown("### [<code>st.altair_chart</code>](https://docs.streamlit.io/develop/api-reference/charts/st.altair_chart)", unsafe_allow_html=True)
+
+
+st.markdown("#### :material/code_blocks: :blue[Source code to run]")
 
 code = """
 # to run this snippet on your computer, you need to first install Altair using pip install altair
@@ -86,6 +98,8 @@ st.altair_chart(c, use_container_width=False)
 with st.container(border=True):
     st.code(code)
 
+
+st.markdown("#### :material/animation: :red[Rendered output]") 
 
 with st.container(border=True):
     x_slider = alt.binding_range(min=1952, max=2007, step=5, name='Year ')

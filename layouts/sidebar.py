@@ -35,7 +35,7 @@ chart_data = source.query(query_str)
 st.markdown(f"### Prices for `{stock}` in {year}")
 st.area_chart(chart_data, x="date", y="price")"""
 
-st.markdown("#### :blue[Source code to run]")
+st.markdown("#### :material/code_blocks: :blue[Source code to run]")
 
 st.markdown("Call methods directly on `st.sidebar`:")
 
@@ -64,7 +64,7 @@ st.area_chart(chart_data, x="date", y="price")"""
 with st.container(border=True):
     st.code(code)
 
-st.markdown("#### :red[Rendered output]")
+st.markdown("#### :material/widgets: :red[Rendered output]")
 
 
 

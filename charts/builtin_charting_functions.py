@@ -3,6 +3,13 @@ import streamlit as st
 st.set_page_config(layout="wide")
 
 
+st.markdown("""
+There are 5 built-in charting functions – `st.line_chart()`, `st.area_chart()`, `st.scatter_chart()`, `st.bar_chart()`, and `st.map()`. 
+            
+They all work similarly by aligning variables with desired aesthetics. 
+""")
+
+st.markdown("### :material/dataset: Data to use")
 
 with st.echo():
     import pandas as pd
@@ -20,11 +27,14 @@ st.markdown("### [<code>st.line_chart</code>](https://docs.streamlit.io/develop/
 code ="""
 st.line_chart(data=stocks, x="date", y="return", color="symbol")
 """
+
+st.markdown("#### :material/code_blocks: :blue[Source code to run]")
+
 with st.container(border=True):
     st.code(code)
 
 
-st.markdown("#### :red[Rendered output]") 
+st.markdown("#### :material/ssid_chart: :red[Rendered output]") 
 
 with st.container(border=True):
     st.line_chart(data=stocks, x="date", y="return", color="symbol", 
@@ -45,11 +55,12 @@ st.markdown("### [<code>st.area_chart</code>](https://docs.streamlit.io/develop/
 code ="""
 st.area_chart(data=stocks, x="date", y="return", color="symbol")
 """
+st.markdown("#### :material/code_blocks: :blue[Source code to run]")
 
 with st.container(border=True):
     st.code(code)
 
-st.markdown("#### :red[Rendered output]") 
+st.markdown("#### :material/area_chart: :red[Rendered output]") 
 with st.container(border=True):
     st.area_chart(data=stocks, x="date", y="return", color="symbol", 
                  width=600, height=500, use_container_width=False)
@@ -60,6 +71,7 @@ with st.expander("Show documentation"):
 
 st.divider()
 
+st.markdown("### :material/dataset: Data to use")
 
 with st.echo():
     import pandas as pd
@@ -88,13 +100,14 @@ else:
     st.scatter_chart(iris, x="{iris_x}", y="{iris_y}"{', color="species"' if iris_color else ""})
     """
 
+st.markdown("#### :material/code_blocks: :blue[Source code to run]")
 
 with st.container(border=True):
     st.code(code)
 
 
 
-st.markdown("#### :red[Rendered output]") 
+st.markdown("####  :material/scatter_plot: :red[Rendered output]") 
 
 with st.container(border=True):
     if iris_color:
@@ -109,6 +122,8 @@ with st.expander("Show documentation"):
     st.write(st.scatter_chart.__doc__)
 
 st.divider()
+
+st.markdown("### :material/dataset: Data to use")
 
 with st.echo():
     import pandas as pd
@@ -139,11 +154,12 @@ else:
     st.bar_chart(tips, x="{tips_x}", y="{tips_y}"{', horizontal=True' if tips_horizontal else ""})
     """
 
+st.markdown("#### :material/code_blocks: :blue[Source code to run]")
 
 with st.container(border=True):
     st.code(code)
 
-st.markdown("#### :red[Rendered output]") 
+st.markdown("#### :material/bar_chart: :red[Rendered output]") 
 with st.container(border=True):
     st.bar_chart(tips, x=tips_x, y=tips_y, color=tips_color, horizontal=tips_horizontal,
                  width=600, height=500, use_container_width=False)
@@ -154,6 +170,7 @@ with st.expander("Show documentation"):
 
 st.divider()
 
+st.markdown("### :material/dataset: Data to use")
 
 with st.echo():
     import pandas as pd
@@ -172,10 +189,13 @@ st.map(us_city_pop, latitude="lat", longitude="lon", size="pop")
 """
 st.markdown("### [<code>st.map</code>](https://docs.streamlit.io/develop/api-reference/charts/st.map)", unsafe_allow_html=True)
 
+
+st.markdown("#### :material/code_blocks: :blue[Source code to run]")
+
 with st.container(border=True):
     st.code(code)
 
-st.markdown("#### :red[Rendered output]") 
+st.markdown("#### :material/map: :red[Rendered output]") 
 
 with st.container(border=True):
     st.map(us_city_pop, latitude="lat", longitude="lon", size="pop", zoom=4)

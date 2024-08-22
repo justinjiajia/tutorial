@@ -21,11 +21,11 @@ st.text_input("Enter your message", key="msg_1",  placeholder="hey, what's up?",
 st.button('Send', on_click=send_message_1)
 st.button('Clear chat history', key="clear_1", on_click=clear_history_1)"""
 
-st.markdown("#### :blue[Source code to run]")
+st.markdown("#### :material/code_blocks: :blue[Source code to run]")
 with st.container(border=True):
     st.code(code)
 
-st.markdown("#### :red[Rendered output]")
+st.markdown("#### :material/widgets: :red[Rendered output]")
 
 if "msg_1" not in st.session_state:
     st.session_state.msgs_1 = []
@@ -86,7 +86,7 @@ with st.container(border=True):
 
 
 
-st.markdown("#### :red[Rendered output]")
+st.markdown("#### :material/widgets: :red[Rendered output]")
  
 chat = st.form("form")
 chat.selectbox("Choose user", ["👧", "👱‍♀️", "👨🏿", "👴"])
@@ -141,11 +141,11 @@ with st.form("send_msg_1"):
 
 st.button('Clear chat history', key="clear_2", on_click=clear_history_2)"""
 
-st.markdown("#### :blue[Source code to run]")
+st.markdown("#### :material/code_blocks: :blue[Source code to run]")
 with st.container(border=True):
     st.code(code)
 
-st.markdown("#### :red[Rendered output]")
+st.markdown("#### :material/widgets: :red[Rendered output]")
 
 if "msgs_2" not in st.session_state:
     st.session_state.msgs_2 = []

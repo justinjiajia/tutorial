@@ -1,3 +1,1 @@
-a = 2
-b = 3
-print(a/b)
+print([str(i) for i in range(10)])

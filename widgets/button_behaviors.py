@@ -25,11 +25,11 @@ st.write(f"The return value of st.button is {submitted_bool} of {type(submitted_
 if submitted_bool:
     st.write(name_str)
 """
-st.markdown("#### :blue[Source code to run]")
+st.markdown("#### :material/code_blocks: :blue[Source code to run]")
 with st.container(border=True):
     st.code(code)
 
-st.markdown("#### :red[Rendered output]")
+st.markdown("#### :material/widgets: :red[Rendered output]")
 with st.container(border=True):
     name_str = st.text_input("Enter your username")
     submitted_bool = st.button("Submit")

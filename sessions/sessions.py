@@ -23,13 +23,13 @@ contact = st.selectbox(
 
 st.write(f"Check if variable `contact` exists: `{'contact' in locals()}`")"""
 
-st.markdown("#### :blue[Source code to run]")
+st.markdown("#### :material/code_blocks: :blue[Source code to run]")
 
 
 with st.container(border=True):
     st.code(code)
 
-st.markdown("#### :red[Rendered output]")
+st.markdown("#### :material/widgets: :red[Rendered output]")
 
 with st.container(border=True):
     st.write(f"Check if variable `contact` exists: `{'contact' in locals()}`")
@@ -61,13 +61,13 @@ st.selectbox("How would you like to be contacted?",
 
 st.write(f"The value of the state item `'contact'`: `{st.session_state.contact}`")"""
 
-st.markdown("#### :blue[Source code to run]")
+st.markdown("#### :material/code_blocks: :blue[Source code to run]")
 
 
 with st.container(border=True):
     st.code(code)
 
-st.markdown("#### :red[Rendered output]")
+st.markdown("#### :material/widgets: :red[Rendered output]")
 
 with st.container(border=True):
     try:
@@ -95,13 +95,13 @@ except:
 st.session_state.state_item = "initialized"
 """
 
-st.markdown("#### :blue[Source code to run]")
+st.markdown("#### :material/code_blocks: :blue[Source code to run]")
 
 
 with st.container(border=True):
     st.code(code)
 
-st.markdown("#### :red[Rendered output]")
+st.markdown("#### :material/widgets: :red[Rendered output]")
 
 
 with st.container(border=True):

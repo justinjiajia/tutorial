@@ -20,13 +20,13 @@ if on_1:
 
 st.write(f"The value of the item `inside_toggle_1` in Session State: `{st.session_state.inside_toggle_1}`")"""
 
-st.markdown("#### :blue[Source code to run]")
+st.markdown("#### :material/code_blocks: :blue[Source code to run]")
 
 
 with st.container(border=True):
     st.code(code)
 
-st.markdown("#### :red[Rendered output]")
+st.markdown("#### :material/widgets: :red[Rendered output]")
  
 with st.container(border=True):
     on_1 = st.toggle("Activate slider", True, key="toggle_1")
@@ -59,12 +59,12 @@ if on_2:
 st.write(f"The value of the item `inside_toggle_2` in Session State: `{st.session_state.inside_toggle_2}`")
 """
 
-st.markdown("#### :blue[Source code to run]")
+st.markdown("#### :material/code_blocks: :blue[Source code to run]")
 
 with st.container(border=True):
     st.code(code)
 
-st.markdown("#### :red[Rendered output]")
+st.markdown("#### :material/widgets: :red[Rendered output]")
  
 with st.container(border=True): 
 
@@ -118,14 +118,14 @@ if on_3:
 st.write(f"The value of the item `_inside_toggle_3` in Session State: `{st.session_state._inside_toggle_3}`")
 """
 
-st.markdown("#### :blue[Source code to run]")
+st.markdown("#### :material/code_blocks: :blue[Source code to run]")
 
 with st.container(border=True):
     st.code(code)
 
 
 
-st.markdown("#### :red[Rendered output]")
+st.markdown("#### :material/widgets: :red[Rendered output]")
 
 def update_value(key):
     st.session_state[key] = st.session_state["_" + key]

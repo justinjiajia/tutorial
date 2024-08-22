@@ -19,7 +19,7 @@ To add elements to the returned container, we can use the `with` statement (pref
 
 
 
-st.markdown("#### :blue[Source code to run]")
+st.markdown("#### :material/code_blocks: :blue[Source code to run]")
 
 code = """ tab1, tab2, tab3 = st.tabs(["Cat", "Dog", "Owl"])    
 with tab1:

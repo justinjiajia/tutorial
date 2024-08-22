@@ -45,11 +45,11 @@ if clicked:
     st.write(f"**Message:** {message}")
 """
 
-st.markdown("#### :blue[Source code to run]")
+st.markdown("#### :material/code_blocks: :blue[Source code to run]")
 with st.container(border=True):
     st.code(code)
 
-st.markdown("#### :red[Rendered output]")
+st.markdown("#### :material/widgets: :red[Rendered output]")
 with st.container(border=True):
     message = st.text_input("Enter your message")
     clicked = st.button('Show message below')
@@ -69,7 +69,7 @@ st.divider()
 
 st.markdown("To ensure a clicked button to continue to be `True`, we can add a separate item to `st.session_state` and use the button to set that item to `True`:")
 
-st.markdown("#### :blue[Source code to run]")
+st.markdown("#### :material/code_blocks: :blue[Source code to run]")
 code = """# the key arguments are primarily used for distinguishing identical widgets on this page
 if 'btn_1_clicked' not in st.session_state:
     st.session_state.btn_1_clicked = False
@@ -92,7 +92,7 @@ if 'btn_1_clicked' not in st.session_state:
 with st.container(border=True):
     st.code(code)
 
-st.markdown("#### :red[Rendered output]")
+st.markdown("#### :material/widgets: :red[Rendered output]")
 
 with st.container(border=True):
     st.text_input("Enter your message", key="txt_1")
@@ -141,11 +141,11 @@ if 'btn_2_clicked' not in st.session_state:
     st.session_state.btn_2_clicked = False
 
 
-st.markdown("#### :blue[Source code to run]")
+st.markdown("#### :material/code_blocks: :blue[Source code to run]")
 with st.container(border=True):
     st.code(code)
 
-st.markdown("#### :red[Rendered output]")
+st.markdown("#### :material/widgets: :red[Rendered output]")
 with st.container(border=True):
     if st.session_state.btn_2_clicked:
 
@@ -204,7 +204,7 @@ st.text_input("Enter your message", key="txt_3")
 st.button('Show message above', key="btn_3", on_click=submit_btn_3)
 """
 
-st.markdown("#### :blue[Source code to run]")
+st.markdown("#### :material/code_blocks: :blue[Source code to run]")
  
 
 with st.container(border=True):
@@ -217,7 +217,7 @@ def submit_btn_3():
     st.session_state.btn_3_clicked = True
 
 
-st.markdown("#### :red[Rendered output]")
+st.markdown("#### :material/widgets: :red[Rendered output]")
 
 with st.container(border=True):
     if st.session_state.btn_3_clicked:
@@ -255,13 +255,13 @@ st.text_input("Enter your message", key="txt_4", placeholder="hey, what's up?",
 st.button('Send', key="btn_4", on_click=send_msg_1)
 """
 
-st.markdown("#### :blue[Source code to run]")
+st.markdown("#### :material/code_blocks: :blue[Source code to run]")
  
 
 with st.container(border=True):
     st.code(code)
 
-st.markdown("#### :red[Rendered output]")
+st.markdown("#### :material/widgets: :red[Rendered output]")
 
 if 'btn_4_clicked' not in st.session_state:
     st.session_state.btn_4_clicked = False
@@ -294,11 +294,11 @@ st.text_input("Enter your message", key="txt_5", placeholder="hey, what's up?",
 st.button('Send', key="btn_5", on_click=send_msg_2)
 """
 
-st.markdown("#### :blue[Source code to run]")
+st.markdown("#### :material/code_blocks: :blue[Source code to run]")
 with st.container(border=True):
     st.code(code)
 
-st.markdown("#### :red[Rendered output]")
+st.markdown("#### :material/widgets: :red[Rendered output]")
 
 if "messages" not in st.session_state:
     st.session_state.messages = []

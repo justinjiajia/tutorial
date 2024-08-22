@@ -2,21 +2,22 @@ import streamlit as st
 
 st.set_page_config(layout="wide")
 
-with st.container(border=True):
-    with st.echo():
-        import pandas as pd
-        df = pd.DataFrame(
-            {
-                "name": ["Roadmap", "Extras", "Issues"],
-                "url": ["https://roadmap.streamlit.app", "https://extras.streamlit.app", "https://issues.streamlit.app"],
-                "stars": [842, 503, 1016],
-                "in_progress": [True, False, True]
-            }
-        )
+st.markdown("### :material/dataset: Data to use")
 
-with st.container(border=True):
-    with st.echo():
-        st.write(df)
+
+with st.echo():
+    import pandas as pd
+
+    df = pd.DataFrame(
+        {
+            "name": ["Roadmap", "Extras", "Issues"],
+            "url": ["https://roadmap.streamlit.app", "https://extras.streamlit.app", "https://issues.streamlit.app"],
+            "stars": [842, 503, 938],
+            "in_progress": [True, False, True]
+        }
+    )
+
+    st.write(df)
 
 st.divider()
 
@@ -57,6 +58,22 @@ with st.expander("Show documentation"):
 
 st.divider()
 
+
+st.markdown("### :material/dataset: Data to use")
+
+
+with st.echo():
+    import random
+    import pandas as pd
+
+    random.seed(125)
+    df["views_history"] = [[random.randint(0, 5000) for _ in range(30)] for _ in range(3)]
+    
+    st.dataframe(df)
+
+st.divider()
+
+
 st.markdown("### [<code>st.column_config</code>](https://docs.streamlit.io/develop/api-reference/data/st.column_config)", unsafe_allow_html=True)
 
 
@@ -70,23 +87,7 @@ It provides a suite of methods to tailor your columns to various data types, tra
         # no incremental change can be retained (e.g., uncheck a checkbox)
 #       
 
-with st.container(border=True):
-    with st.echo():
-        import random
-        import pandas as pd
 
-        random.seed(125)
-        
-        df = pd.DataFrame(
-            {
-                "name": ["Roadmap", "Extras", "Issues"],
-                "url": ["https://roadmap.streamlit.app", "https://extras.streamlit.app", "https://issues.streamlit.app"],
-                "stars": [842, 503, 938],
-                "views_history": [[random.randint(0, 5000) for _ in range(30)] for _ in range(3)],
-                "in_progress": [True, False, True]
-            }
-        )
-        st.dataframe(df)
 
 with st.container(border=True):
     with st.echo():

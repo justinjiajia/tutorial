@@ -20,7 +20,7 @@ When a widget is assigned a key, calling the widget function at each run will fi
 If so, Streamlit assigns that key's value to the widget:
 """)
 
-st.markdown("#### :blue[Source code to run]")
+st.markdown("#### :material/code_blocks: :blue[Source code to run]")
 
 code = """if "a" not in st.session_state:   
     st.session_state["a"] = 2
@@ -34,7 +34,7 @@ st.write(f"The value of st.session_state.a is {st.session_state.a}.")"""
 with st.container(border=True):
     st.code(code)
 
-st.markdown("#### :red[Rendered output]")
+st.markdown("#### :material/widgets: :red[Rendered output]")
 
 
 with st.container(border=True):
@@ -49,7 +49,7 @@ st.divider()
 st.markdown("Streamlit will reset the widget's value in each run if the `if` test is removed:")
 
 
-st.markdown("#### :blue[Source code to run]")
+st.markdown("#### :material/code_blocks: :blue[Source code to run]")
 
 code = """st.session_state["b"] = 2
 
@@ -61,7 +61,7 @@ st.write(f"The value of st.session_state.b is {st.session_state.b}.")"""
 with st.container(border=True):
     st.code(code)
 
-st.markdown("#### :red[Rendered output]")
+st.markdown("#### :material/widgets: :red[Rendered output]")
 
 with st.container(border=True):
     st.session_state["b"] = 2

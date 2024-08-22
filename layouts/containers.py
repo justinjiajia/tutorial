@@ -18,7 +18,7 @@ To add elements to the returned container, we can use the `with` statement (pref
 
 
 
-st.markdown("#### :blue[Source code to run]")
+st.markdown("#### :material/code_blocks: :blue[Source code to run]")
 
 code = """with st.container():     
    st.write("This is inside the container")
@@ -50,7 +50,7 @@ container.write("This is inside the container")
 st.write("This is outside the container")
 container.write(":dog:")"""
 
-st.markdown("#### :blue[Source code to run]")
+st.markdown("#### :material/code_blocks: :blue[Source code to run]")
 
 with st.container(border=True):
     st.code(code)
