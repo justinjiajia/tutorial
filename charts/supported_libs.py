@@ -82,7 +82,7 @@ st.markdown("### [<code>st.altair_chart</code>](https://docs.streamlit.io/develo
 st.markdown("""
 [Altair](https://altair-viz.github.io/) is another popular Python library for interactive visualization. It uses a declarative grammer, which allows us to describe the intended chart outcome from different aspects (e.g., chart, mark, encodings, etc.) rather than force us to manually programming every step.
             
-`st.altair_chart()` allows us to easily port any Altair charts into our streamlit apps.
+We can port any Altair charts into our streamlit apps using `st.altair_chart()`.
 """, unsafe_allow_html=True)
 
 
