@@ -1,5 +1,4 @@
 import streamlit as st
-from PIL import Image
 
 st.set_page_config(layout="wide")
 
@@ -96,7 +95,59 @@ code = """try:
     st.write(f"`{st.session_state.state_item}`")
 except:
     st.error("`'state_item'` does not exist in `st.session_state`.")
+    
 st.session_state.state_item = "initialized"
+"""
+
+st.markdown("#### :material/code_blocks: :blue[Source code to run]")
+
+
+with st.container(border=True):
+    st.code(code)
+
+st.markdown("#### :material/monitor: :red[Rendered output]")
+
+
+with st.container(border=True):
+    try: 
+        st.write(f"`{st.session_state.state_item}`")
+    except:
+        st.error("`'state_item'` does not exist in `st.session_state`.")
+
+    st.session_state.state_item = "initialized"
+
+st.page_link("sessions/check_state_item.py", label="Click to see if `state_item` can be accessed from a different page.", icon="🖱️")
+st.markdown("""Note that refreshing a page will terminate the previous connection and establish a new one, resulting in a new session with a fresh state.
+""")    
+
+st.divider()
+
+st.markdown("""
+When we want some data items to persist and potentially  mutate throughout a user session, remember to add them to Session State.
+This requires some initialization steps to be executed when the app script runs for the first time.
+
+There are two ways to initialize a state item in Session State:
+
+- First, it can be initialized through the first rendering of a widget associated with the key;
+
+- Second, we can manually assign an initial value to the key using a direct assignment.
+""")
+
+code = """
+# this guard condition is necessary
+# otherwise, the state item resets every time the script reruns
+if "bucket_list" not in st.session_state:
+    st.session_state["bucket_list"] = []
+    
+st.subheader("My Bucket List:")
+
+dest = st.text_input("Where do you want to travel?")
+clicked = st.button("Add to list")
+
+if clicked:
+    st.session_state.bucket_list.append(dest.capitalize())
+
+st.write(st.session_state["bucket_list"] )
 """
 
 st.markdown("#### :material/code_blocks: :blue[Source code to run]")
@@ -107,16 +158,19 @@ with st.container(border=True):
 
 st.markdown("#### :material/widgets: :red[Rendered output]")
 
-
 with st.container(border=True):
-    try: 
-        st.write(f"`{st.session_state.state_item}`")
-    except:
-        st.error("`'state_item'` does not exist in `st.session_state`.")
-    st.session_state.state_item = "initialized"
-
-st.page_link("sessions/check_state_item.py", label="Click to see if `state_item` can be accessed from a different page.", icon="🖱️")
-st.markdown("""Note that refreshing a page will terminate the previous connection and establish a new one, resulting in a new session with a fresh state.
-""")    
-
  
+    if "bucket_list" not in st.session_state:
+        st.session_state["bucket_list"] = []
+    
+    st.subheader("My Bucket List:")
+
+    dest = st.text_input("Where do you want to travel?")
+    clicked = st.button("Add to list")
+
+    if clicked:
+        st.session_state.bucket_list.append(dest.title())
+        
+    
+    st.write(st.session_state["bucket_list"] )
+

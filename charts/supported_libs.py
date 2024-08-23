@@ -30,7 +30,7 @@ st.markdown("### [<code>st.plotly_chart</code>](https://docs.streamlit.io/develo
 
 
 st.markdown("""
-[Plotly](https://plotly.com/) is an interactive visualization library that many data scientists use to visualize data. This library is very similar to Streamlit in its intent and useful in creating interactive visuals for dashboards.
+[Plotly](https://plotly.com/) is an interactive visualization library that many data scientists use to visualize data. This library is very similar to Streamlit in its intent and useful in creating interactive visuals and dashboards.
             
 Streamlit allows us to call plotly graphs from within Streamlit apps using the `st.plotly_chart()` function, making it a breeze to port any Plotly dashboards. 
 """, unsafe_allow_html=True)
@@ -82,7 +82,7 @@ st.markdown("### [<code>st.altair_chart</code>](https://docs.streamlit.io/develo
 st.markdown("""
 [Altair](https://altair-viz.github.io/) is another popular Python library for interactive visualization. It uses a declarative grammer, which allows us to describe the intended chart outcome from different aspects (e.g., chart, mark, encodings, etc.) rather than force us to manually programming every step.
             
-We can port any Altair charts into our streamlit apps via `st.altair_chart()`.
+`st.altair_chart()` allows us to easily port any Altair charts into our streamlit apps.
 """, unsafe_allow_html=True)
 
 

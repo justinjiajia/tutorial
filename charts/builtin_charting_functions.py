@@ -50,7 +50,7 @@ st.markdown("#### :material/ssid_chart: :red[Rendered output]")
 
 with st.container(border=True):
     st.line_chart(medals, x="year", y="total", color="type", 
-                  width=800, height=500, use_container_width=False)
+                  width=720, height=500, use_container_width=False)
 
 
 ### st.line_chart will sort the values of the column used for the x axis automatically """
@@ -88,7 +88,7 @@ with st.container(border=True):
 st.markdown("#### :material/area_chart: :red[Rendered output]") 
 with st.container(border=True):
     st.area_chart(medals, x="year", y="total", color="type", stack=True,
-                 width=800, height=500, use_container_width=False)
+                 width=720, height=500, use_container_width=False)
 
 
 st.markdown("""<br/>
@@ -108,16 +108,16 @@ with st.container(border=True):
 st.markdown("#### :material/area_chart: :red[Rendered output]") 
 with st.container(border=True):
     st.area_chart(medals, x="year", y="total", color="type", stack=False,
-                 width=800, height=500, use_container_width=False)
+                 width=720, height=500, use_container_width=False)
     
 
 st.markdown("""<br/>
 
-Streamlit also allows us to customize the colors used for distinct categories.
-However, to leverage this color customization feature,  it's necessary to first transform our DataFrame into wide format.
+Streamlit also allows us to customize the colors used for different categories.
+However, to leverage this color customization feature,  it's necessary to first transform our DataFrame into a wide format.
 
-In wide format, categories are no longer represented as distinct values within a single column (e.g., `total`).
-Instead, they are mapped into independent columns (e.g., `Gold`, `Silver`, and `Bronze`).
+In such a wide format, categories are no longer represented as distinct values within a single column (e.g., `total`).
+Rather, they are mapped into independent columns (e.g., `Gold`, `Silver`, and `Bronze`).
 """, unsafe_allow_html=True) 
 
 st.markdown("### :material/dataset: Data to use")
@@ -146,7 +146,7 @@ st.markdown("#### :material/area_chart: :red[Rendered output]")
 # "#A77044" is the color for Bronze; "#FEE101" is the color for gold
 with st.container(border=True):
     st.area_chart(medals_w, x="year", y=['Gold', 'Silver', 'Bronze'], color=["#A77044", "#FEE101", "#A7A7AD"], stack=True,
-                 width=800, height=500, use_container_width=False)
+                 width=720, height=500, use_container_width=False)
     
 
 with st.expander("Show documentation"):
@@ -196,10 +196,10 @@ st.markdown("####  :material/scatter_plot: :red[Rendered output]")
 with st.container(border=True):
     if iris_color:
         st.scatter_chart(iris, x=iris_x, y=iris_y, size=iris_size, color="species",
-                        width=800, height=500, use_container_width=False)
+                        width=720, height=500, use_container_width=False)
     else:
         st.scatter_chart(iris, x=iris_x, y=iris_y, size=iris_size, 
-                         width=800, height=500, use_container_width=False)
+                         width=720, height=500, use_container_width=False)
 
 
 with st.expander("Show documentation"):
@@ -246,7 +246,7 @@ with st.container(border=True):
 st.markdown("#### :material/bar_chart: :red[Rendered output]") 
 with st.container(border=True):
     st.bar_chart(tips, x=tips_x, y=tips_y, color=tips_color, horizontal=tips_horizontal,
-                 width=800, height=500, use_container_width=False)
+                 width=720, height=500, use_container_width=False)
 
 with st.expander("Show documentation"):
     st.write(st.bar_chart.__doc__)

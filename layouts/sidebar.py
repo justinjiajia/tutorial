@@ -1,14 +1,15 @@
 import streamlit as st
-import plotly.express as px
-from vega_datasets import data
+import pandas as pd
 
-st.set_page_config(layout="centered")
+st.set_page_config(layout="wide")
 
 with open( "static/font.css" ) as css:
     st.markdown( f'<style>{css.read()}</style>' , unsafe_allow_html= True)
     
 st.markdown("Streamlit also provides ways for controlling how different elements are laid out on the screen.")
 
+source = pd.read_csv("https://raw.githubusercontent.com/vega/vega-datasets/main/data/stocks.csv", 
+                     parse_dates=['date'], date_format="%b %d %Y")
 
 
 st.markdown("""Each page can feature a sidebar implemented by `st.sidebar`. 
@@ -23,13 +24,12 @@ We can organize page elements into a sidebar by
 
 
 code = """import streamlit as st
-import plotly.express as px
-from vega_datasets import data
+import pandas as pd
 
-source = data.stocks()
+source = pd.read_csv("https://raw.githubusercontent.com/vega/vega-datasets/main/data/stocks.csv", 
+                     parse_dates=['date'], date_format="%b %d %Y")
 
-stock = st.sidebar.selectbox("Select a stock", 
-                              source.symbol.unique())
+stock = st.sidebar.selectbox("Select a stock", source.symbol.unique())
 year = st.sidebar.slider("Select a year", 2004, 2010)
 
 query_str = f"date < {year + 1} and date >= {year} and symbol == '{stock}'"
@@ -46,16 +46,15 @@ with st.container(border=True):
     st.code(code)
 
 
-st.markdown("Use `with` notation:")
+st.markdown("Or use `with` notation:")
 code = """import streamlit as st
-import plotly.express as px
-from vega_datasets import data
+import pandas as pd
 
-source = data.stocks()
+source = pd.read_csv("https://raw.githubusercontent.com/vega/vega-datasets/main/data/stocks.csv", 
+                     parse_dates=['date'], date_format="%b %d %Y")
 
 with st.sidebar:
-    stock = st.selectbox("Select a stock", 
-                         source.symbol.unique())
+    stock = st.selectbox("Select a stock", source.symbol.unique())
     year = st.slider("Select a year", 2004, 2010)
 
 query_str = f"date < {year + 1} and date >= {year} and symbol == '{stock}'"
@@ -71,12 +70,10 @@ st.markdown("#### :material/widgets: :red[Rendered output]")
 
 
 
-source = data.stocks()
-
 with st.container(border=True):
     stock = st.sidebar.selectbox("Select a stock", source.symbol.unique())
     year = st.sidebar.slider("Select a year", 2004, 2010)
     st.markdown(f"### Prices for `{stock}` in {year}<br>", unsafe_allow_html=True)
  
     chart_data = source.query(f"date < {year + 1} and date >= {year} and symbol == '{stock}'")
-    st.area_chart(chart_data, x="date", y="price")
+    st.area_chart(chart_data, x="date", y="price", height=500, width=720, use_container_width=False)

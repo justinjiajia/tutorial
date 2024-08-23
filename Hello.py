@@ -20,6 +20,8 @@ display_image = st.Page("widgets/display_image.py", title="🎯Practice: Display
 forms = st.Page("widgets/forms.py", title="Forms")
 cleanup = st.Page("widgets/cleanup.py", title="🚀Optional: Widget clean up process")
 
+advanced_todo_list = st.Page("widgets/advanced_todo_list.py", title="🎯Practice: Advanced to-do list")
+
 sidebar = st.Page("layouts/sidebar.py", title="Sidebar")
 columns = st.Page("layouts/columns.py", title="Columns")
 containers = st.Page("layouts/containers.py", title="Containers")
@@ -31,12 +33,14 @@ tabs = st.Page("layouts/tabs.py", title="Tabs")
 
 sessions = st.Page("sessions/sessions.py", title="Session and Session State")
 check_state_item = st.Page("sessions/check_state_item.py", title="Check persistence of a state item")
+create_todo_list = st.Page("sessions/create_todo_list.py", title="🎯Practice: Create to-do list")
 test = st.Page("test.py", title="Test")
 
 elements_pages = [data_elements, media_elements]
 charts_pages = [ visual_intro, native_charts, create_charts, supported_libs]
-widgets_pages = [intro, create_dynamic_chart, defaults, button, keys, value_init, callbacks, show_hide_message, display_image, forms, cleanup]
-sessions_pages = [sessions, check_state_item]
+widgets_pages = [intro, create_dynamic_chart, defaults, button, keys, value_init, callbacks, 
+                 show_hide_message, display_image, advanced_todo_list, forms, cleanup]
+sessions_pages = [sessions, check_state_item, create_todo_list]
 layouts_pages = [sidebar, columns, containers, chat_UI, tabs]
 
 pg = st.navigation({"📑Page elements": elements_pages, "📊Charts": charts_pages, "📱Widgets": widgets_pages,  "🕓Sessions": sessions_pages, 

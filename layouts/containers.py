@@ -5,7 +5,7 @@ st.set_page_config(layout="wide")
 
 with open( "static/font.css" ) as css:
     st.markdown( f'<style>{css.read()}</style>' , unsafe_allow_html= True)
-    
+
 st.markdown("""`st.container` allows us to inserts an invisible container into our app that can hold multiple elements.
 
 <img src="https://docs.streamlit.io/images/api/container.jpg" width=400/>
@@ -32,7 +32,7 @@ st.write("This is outside the container")"""
 with st.container(border=True):
     st.code(code)
 
-st.markdown("#### :red[Rendered output]")
+st.markdown("####  :material/monitor: :red[Rendered output]")
 
 
 with st.container():     
@@ -58,7 +58,7 @@ st.markdown("#### :material/code_blocks: :blue[Source code to run]")
 with st.container(border=True):
     st.code(code)
 
-st.markdown("#### :red[Rendered output]")
+st.markdown("####  :material/monitor: :red[Rendered output]")
 
 
 
@@ -71,6 +71,23 @@ container.write(":dog:")
 st.divider()
 
 st.markdown("`st.container` can be used along with `st.columns` to make a grid of containers like the following:")
+
+
+st.markdown("#### :material/code_blocks: :blue[Source code to run]")
+
+code = """row1 = st.columns(4)
+row2 = st.columns(4)
+
+for col in row1 + row2:
+    tile = col.container(height=60)
+    tile.write(":dog:")
+"""
+
+with st.container(border=True):
+    st.code(code)
+
+st.markdown("####  :material/monitor: :red[Rendered output]")
+
 
 
 row1 = st.columns(4)

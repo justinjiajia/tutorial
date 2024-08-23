@@ -8,7 +8,7 @@ with open( "static/font.css" ) as css:
 
 st.markdown(
 """
-We can initialize a widget's values via `st.session_state`. 
+We can initialize a widget's values via Session State. 
 
 When a widget is assigned a key, calling the widget function at each run will first check if that key already exists in `st.session_state`.
 If so, Streamlit assigns that key's value to the widget:
@@ -92,9 +92,10 @@ st.slider('Choose a value', 0, 10, 5, key="c")"""
 with st.container(border=True):
     st.code(code)
 
+ 
 
 with st.container(border=True):
-    st.image("static/warning.png", width=750)
+    st.image("static/warning.png")
 
 # thrown an error only upon using `streamlit run` to start it for the 1st run
 # if "c" not in st.session_state: 
@@ -106,7 +107,7 @@ with st.container(border=True):
 st.markdown("- Once a widget is initialized with a key, modifying its value via `st.session_state` is not allowed:")
 
 code = """st.slider('Choose a value', 0, 10, key="d")
-st.session_state.d = 2)"""
+st.session_state.d = 2"""
 
 with st.container(border=True):
     st.code(code)

@@ -9,7 +9,7 @@ st.markdown("#### :material/code_blocks: :blue[Source code to run]")
 with st.container(border=True):
     st.code(code)
 
-st.markdown("#### :material/widgets: :red[Rendered output]")
+st.markdown("#### :material/monitor: :red[Rendered output]")
 
 # to make sure sessions.py is always loaded before this script
 if "state_item" not in st.session_state:
