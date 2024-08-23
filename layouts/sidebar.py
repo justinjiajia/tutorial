@@ -4,6 +4,9 @@ from vega_datasets import data
 
 st.set_page_config(layout="centered")
 
+with open( "static/font.css" ) as css:
+    st.markdown( f'<style>{css.read()}</style>' , unsafe_allow_html= True)
+    
 st.markdown("Streamlit also provides ways for controlling how different elements are laid out on the screen.")
 
 

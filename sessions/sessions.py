@@ -3,14 +3,16 @@ from PIL import Image
 
 st.set_page_config(layout="wide")
 
+with open( "static/font.css" ) as css:
+    st.markdown( f'<style>{css.read()}</style>' , unsafe_allow_html= True)
 
 
-
-st.markdown("""Recall: Streamlit reruns the script every time we interact with an app. 
+st.markdown("""Recall: Streamlit reruns the script from top to bottom upon user input. 
             
 Each reruns takes place in a blank slate (with a fresh namespace). So, variables do not live beyond a single run and cannot be shared between runs.
 
-            https://docs.streamlit.io/develop/concepts/architecture/session-state
+The following example helps you see this.
+            
 """)
 
 
@@ -45,16 +47,18 @@ with st.container(border=True):
 st.divider()
 
 st.markdown("""
-Broadly speaking, a session in the context of web development refers to a way of maintaining state information about a user's interactions with a website or web application
-
-In Streamlit, a session is simply a connection to the backend server in a browser tab. Its state endures and can change across reruns. 
+Then, how can we share information across reruns of a Streamlit app? This is where [`st.session_state`](https://docs.streamlit.io/develop/concepts/architecture/session-state) comes to the rescue.
             
-Streamlit allows us to access a session's state through the `st.session_state` API, providing a way to share data between reruns.""")
+As you may know, a session in the context of Web development refers to a way of maintaining state information about a user's interactions with a website or web application.
+
+In Streamlit, a session is simply a connection to the backend server in a browser tab. Its state endures and can also be updated across reruns. 
+            
+Streamlit allows us to access a session's state through a global dictionary, called ***Session State***, which persists through a user's session and is exposed by `st.session_state`, providing a way to share data between reruns.""")
 
 code = """try:
     st.write(f"The value of the state item `'contact'`: `{st.session_state.contact}`")
 except:
-    st.error("`'contact'` does not exist in `st.session_state` before the initial load of the selectbox widget.")
+    st.error("`'contact'` does not exist in `st.session_state` before the initial rendering of the selectbox widget.")
 
 st.selectbox("How would you like to be contacted?",
              ("Email", "Home phone", "Mobile phone"), key="contact")
@@ -85,7 +89,7 @@ with st.container(border=True):
 st.divider()
 
 st.markdown("""
-Session state also persists across pages of a multi-page app as long as those pages are loaded within the same connection.""") 
+Session State also persists across pages of a multi-page app as long as those pages are loaded within the same connection.""") 
 
 
 code = """try: 

@@ -1,6 +1,9 @@
 import streamlit as st
 
-st.set_page_config(layout="centered")
+st.set_page_config(layout="wide")
+
+with open( "static/font.css" ) as css:
+    st.markdown( f'<style>{css.read()}</style>' , unsafe_allow_html=True)
 
 st.markdown("""
 <style>
@@ -53,7 +56,7 @@ with st.container(border=True):
     x = st.slider('Choose a value for variable x', 0, 10)
     y = st.slider('Choose a value for variable y', 0, 10, step=2)  
 
-st.info("Now the two widgets are different from Streamlit's perspective.")       
+st.write("Now the two widgets are different in Streamlit's eyes.")       
 
 
 st.divider()
@@ -74,8 +77,15 @@ with st.container(border=True):
     x = st.slider('Choose a value', 0, 10, key="a")
     y = st.slider('Choose a value', 0, 10, key="b")
 
-st.markdown("When a widget is associated with a key, its value will be automatically added as a new item to `st.session_state`, which is a dictionary-like object that maintains the state of a user session.")
-st.markdown("Then, we can use either an attribute-style or a dictionary-style syntax to read that item from `st.session_state`:")
+
+st.divider()
+
+st.markdown("""
+When a widget is associated with a key, its value will be automatically added as a new item to a global dictionary, called ***Session State***.
+
+Then, we can use either an attribute-style or a dictionary-style syntax to read that item from the `st.session_state` API.
+""")
+
 
 st.markdown("#### :material/code_blocks: :blue[Source code to run]")
 
@@ -85,7 +95,7 @@ st.write(f"The value of variable `y` is: `{st.session_state['b']}`")"""
 with st.container(border=True):
     st.code(code)
     
-st.markdown("#### :material/widgets: :red[Rendered output]")
+st.markdown("#### :material/monitor: :red[Rendered output]")
 
 with st.container(border=True):    
     st.markdown(f"The value of variable `x` is: `{st.session_state.a}`")       

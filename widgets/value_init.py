@@ -1,16 +1,10 @@
 import streamlit as st
 
-st.set_page_config(layout="centered")
+st.set_page_config(layout="wide")
 
-st.markdown("""
-<style>
-[data-testid=stExpander] summary p {
-    font-size: 18px;
-    font-weight: bold;
-    color: salmon;
-}
-</style>
-""", unsafe_allow_html=True)
+with open( "static/font.css" ) as css:
+    st.markdown( f'<style>{css.read()}</style>' , unsafe_allow_html=True)
+
 
 st.markdown(
 """
@@ -100,7 +94,7 @@ with st.container(border=True):
 
 
 with st.container(border=True):
-    st.image("static/warning.png")
+    st.image("static/warning.png", width=750)
 
 # thrown an error only upon using `streamlit run` to start it for the 1st run
 # if "c" not in st.session_state: 

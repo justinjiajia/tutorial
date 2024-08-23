@@ -4,13 +4,15 @@ import altair as alt
 
 st.set_page_config(layout="wide")
 
+with open( "static/font.css" ) as css:
+    st.markdown( f'<style>{css.read()}</style>' , unsafe_allow_html= True)
 
 st.markdown("""
-As we've seen, Streamlit built-in charting functions can be useful if we want to visualize data quickly. However, we trade off speed for customizability.
+As we've seen, Streamlit built-in charting functions can be useful if we want to visualize data quickly, but we trade off speed for customizability.
 
-In production, more powerful libraries, such as Matplotlib, Seaborn, Plotly, and Altair, would be able to give us the flexibility and customizability we want. 
+In production, more powerful libraries, such as Matplotlib, Seaborn, Plotly, and Altair, can give us the flexibility and customizability we want. 
 
-Streamlit supports six popular Python visualization libraries. The rest of this section will provide a walk-through of Plotly and Altair for interactive plotting.
+Streamlit supports 6 popular Python visualization libraries. The rest of this section will provide a walk-through of Plotly and Altair for interactive plotting.
 """)
 
 st.markdown("### :material/dataset: Data to use")
@@ -25,6 +27,15 @@ st.divider()
 
 
 st.markdown("### [<code>st.plotly_chart</code>](https://docs.streamlit.io/develop/api-reference/charts/st.plotly_chart)", unsafe_allow_html=True)
+
+
+st.markdown("""
+[Plotly](https://plotly.com/) is an interactive visualization library that many data scientists use to visualize data. This library is very similar to Streamlit in its intent and useful in creating interactive visuals for dashboards.
+            
+Streamlit allows us to call plotly graphs from within Streamlit apps using the `st.plotly_chart()` function, making it a breeze to port any Plotly dashboards. 
+""", unsafe_allow_html=True)
+
+
 
 
 st.markdown("#### :material/code_blocks: :blue[Source code to run]")
@@ -66,6 +77,15 @@ with st.container(border=True):
 st.divider()
 
 st.markdown("### [<code>st.altair_chart</code>](https://docs.streamlit.io/develop/api-reference/charts/st.altair_chart)", unsafe_allow_html=True)
+
+
+st.markdown("""
+[Altair](https://altair-viz.github.io/) is another popular Python library for interactive visualization. It uses a declarative grammer, which allows us to describe the intended chart outcome from different aspects (e.g., chart, mark, encodings, etc.) rather than force us to manually programming every step.
+            
+We can port any Altair charts into our streamlit apps via `st.altair_chart()`.
+""", unsafe_allow_html=True)
+
+
 
 
 st.markdown("#### :material/code_blocks: :blue[Source code to run]")

@@ -3,6 +3,9 @@ import streamlit as st
  
 st.set_page_config(layout="wide")
 
+with open( "static/font.css" ) as css:
+    st.markdown( f'<style>{css.read()}</style>' , unsafe_allow_html= True)
+
 st.markdown("## Widgets that return string values")
 
 st.markdown("### [<code>st.selectbox</code>](https://docs.streamlit.io/develop/api-reference/widgets/st.selectbox)", unsafe_allow_html=True)
@@ -24,10 +27,8 @@ st.markdown("### [<code>st.radio</code>](https://docs.streamlit.io/develop/api-r
 with st.container(border=True):
     with st.echo("below"):
         # default to the 1st option
-        genre_str = st.radio(
-            "What's your favorite movie genre?",
-            ["Comedy", "Drama", "Documentary"]
-        )
+        genre_str = st.radio("What's your favorite movie genre?",
+                             ["Comedy", "Drama", "Documentary"])
 st.markdown(f"The value of variable <code>genre_str</code> is <code>'{genre_str}'</code> of <code>{type(genre_str)}</code>.",
             unsafe_allow_html=True)
 with st.expander("Show documentation"):
@@ -63,10 +64,8 @@ st.markdown("#### [<code>st.multiselect</code>](https://docs.streamlit.io/develo
 with st.container(border=True):
     with st.echo("below"):
         # default to an empty list
-        colors_list = st.multiselect(
-            "What are your favorite colors",
-            ["Green", "Yellow", "Red", "Blue"]
-        )
+        colors_list = st.multiselect("What are your favorite colors",
+                                     ["Green", "Yellow", "Red", "Blue"])
 
 st.markdown(f"The value of variable <code>colors_list</code> is <code>{colors_list}</code> of <code>{type(colors_list)}</code>.",
             unsafe_allow_html=True)
@@ -104,11 +103,9 @@ st.info("Passing a tuple/list of two numeric values as the value argument create
 with st.container(border=True):
     with st.echo("below"):
         # default to the minimum value
-        slider_float_range = st.slider(
-            'Choose a value',
-            min_value=10.0, max_value=50.0, 
-            value=(10.0, 20.0)
-        )
+        slider_float_range = st.slider('Choose a value',
+                                       min_value=10.0, max_value=50.0, 
+                                       value=(10.0, 20.0))
 st.markdown(f"The value of variable <code>slider_float_range</code> is <code>{slider_float_range}</code> of <code>{type(slider_float_range)}</code>.",
             unsafe_allow_html=True)
 

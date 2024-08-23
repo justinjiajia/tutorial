@@ -2,6 +2,9 @@ import streamlit as st
 
 st.set_page_config(layout="wide")
 
+with open( "static/font.css" ) as css:
+    st.markdown( f'<style>{css.read()}</style>' , unsafe_allow_html= True)
+    
 st.markdown("""
 <style>
 [data-testid=stExpander] summary p {

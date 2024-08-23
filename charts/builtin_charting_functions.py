@@ -2,30 +2,42 @@ import streamlit as st
 
 st.set_page_config(layout="wide")
 
+with open( "static/font.css" ) as css:
+    st.markdown( f'<style>{css.read()}</style>' , unsafe_allow_html= True)
 
 st.markdown("""
-There are 5 built-in charting functions – `st.line_chart()`, `st.area_chart()`, `st.scatter_chart()`, `st.bar_chart()`, and `st.map()`. 
+Streamlit provides 5 built-in charting/plotting functions – `st.line_chart()`, `st.area_chart()`, `st.scatter_chart()`, `st.bar_chart()`, and `st.map()`. 
             
 They all work similarly by aligning variables with desired aesthetics. 
 """)
 
 st.markdown("### :material/dataset: Data to use")
 
+
+
 with st.echo():
     import pandas as pd
-    stocks = pd.read_csv('https://raw.githubusercontent.com/justinjiajia/datafiles/main/stocks_l.csv', 
-                         parse_dates=['date'], date_format="%Y-%m-%d")
+    medals = pd.read_csv(
+        'https://raw.githubusercontent.com/justinjiajia/datafiles/main/medals.csv', parse_dates=['year']
+    ).query("country == 'China'")
 
 
-
-st.write(stocks)
+st.write(medals)
 
 st.divider()
 
 st.markdown("### [<code>st.line_chart</code>](https://docs.streamlit.io/develop/api-reference/charts/st.line_chart)", unsafe_allow_html=True)
 
+
+st.markdown("""
+For some datasets, we may want to understand changes in one variable as a function of time, or a similarly continuous variable. In this situation, a good choice is to draw a line chart, 
+as it represents changes in value by sequentially connecting points with line segments.
+
+If we align `color` with a categorical variable (i.e., a column that contains discrete values), data points will be grouped into lines of the same color based on the value of this variable. As a result, we can inspect the trends of different data series in one place.
+""")
+
 code ="""
-st.line_chart(data=stocks, x="date", y="return", color="symbol")
+st.line_chart(stocks, x="date", y="return", color="symbol")
 """
 
 st.markdown("#### :material/code_blocks: :blue[Source code to run]")
@@ -37,9 +49,14 @@ with st.container(border=True):
 st.markdown("#### :material/ssid_chart: :red[Rendered output]") 
 
 with st.container(border=True):
-    st.line_chart(data=stocks, x="date", y="return", color="symbol", 
-                  width=600, height=500, use_container_width=False)
+    st.line_chart(medals, x="year", y="total", color="type", 
+                  width=800, height=500, use_container_width=False)
 
+
+### st.line_chart will sort the values of the column used for the x axis automatically """
+## To create an effective line chart, we typcially need to ensure that the values of the variable used for the horizontal axis are sorted in their inherent order.
+##This is because  Therefore, messing up the order will result in confusing and meaningless charts that do not accurately represent the underlying data patterns.
+##""")
 
 
 
@@ -52,8 +69,16 @@ st.divider()
 st.markdown("### [<code>st.area_chart</code>](https://docs.streamlit.io/develop/api-reference/charts/st.area_chart)", unsafe_allow_html=True)
 
 
+st.markdown("""
+Area charts are a type of chart that uses filled areas to represent the evolution of values over time or another continuous variable. 
+            
+Additionally, by stacking multiple area segments on top of each other,
+an area chart allows us to visualize the cumulative sum or total of the values at each point, along with the individual trends.
+
+""")
+
 code ="""
-st.area_chart(data=stocks, x="date", y="return", color="symbol")
+st.area_chart(medals, x="year", y="total", color="type", stack=True)
 """
 st.markdown("#### :material/code_blocks: :blue[Source code to run]")
 
@@ -62,12 +87,71 @@ with st.container(border=True):
 
 st.markdown("#### :material/area_chart: :red[Rendered output]") 
 with st.container(border=True):
-    st.area_chart(data=stocks, x="date", y="return", color="symbol", 
-                 width=600, height=500, use_container_width=False)
+    st.area_chart(medals, x="year", y="total", color="type", stack=True,
+                 width=800, height=500, use_container_width=False)
 
+
+st.markdown("""<br/>
+
+For easy comparison, we also show a chart created from turning off the `stack` option here:
+""", unsafe_allow_html=True)
+
+
+code ="""
+st.area_chart(china_medals, x="year", y="total", color="type", stack=False)
+"""
+st.markdown("#### :material/code_blocks: :blue[Source code to run]")
+
+with st.container(border=True):
+    st.code(code)
+
+st.markdown("#### :material/area_chart: :red[Rendered output]") 
+with st.container(border=True):
+    st.area_chart(medals, x="year", y="total", color="type", stack=False,
+                 width=800, height=500, use_container_width=False)
+    
+
+st.markdown("""<br/>
+
+Streamlit also allows us to customize the colors used for distinct categories.
+However, to leverage this color customization feature,  it's necessary to first transform our DataFrame into wide format.
+
+In wide format, categories are no longer represented as distinct values within a single column (e.g., `total`).
+Instead, they are mapped into independent columns (e.g., `Gold`, `Silver`, and `Bronze`).
+""", unsafe_allow_html=True) 
+
+st.markdown("### :material/dataset: Data to use")
+
+with st.echo():
+    import pandas as pd
+    medals_w = pd.read_csv(
+        'https://raw.githubusercontent.com/justinjiajia/datafiles/main/medals_w.csv', parse_dates=['year']
+    ).query("country == 'China'")
+
+st.write(medals_w)
+
+
+code ="""
+st.area_chart(medals_w, x="year", y=['Bronze', 'Gold', 'Silver'], 
+              color=["#A77044", "#FEE101", "#A7A7AD"], stack=True)
+"""
+st.markdown("#### :material/code_blocks: :blue[Source code to run]")
+
+with st.container(border=True):
+    st.code(code)
+
+
+st.markdown("#### :material/area_chart: :red[Rendered output]") 
+# Streamlit chart functions sort column names automatically ; even if we put ['Gold', 'Silver', 'Bronze'], we still get these names sorted in dictionary order
+# "#A77044" is the color for Bronze; "#FEE101" is the color for gold
+with st.container(border=True):
+    st.area_chart(medals_w, x="year", y=['Gold', 'Silver', 'Bronze'], color=["#A77044", "#FEE101", "#A7A7AD"], stack=True,
+                 width=800, height=500, use_container_width=False)
+    
 
 with st.expander("Show documentation"):
     st.write(st.area_chart.__doc__)
+
 
 st.divider()
 
@@ -112,10 +196,10 @@ st.markdown("####  :material/scatter_plot: :red[Rendered output]")
 with st.container(border=True):
     if iris_color:
         st.scatter_chart(iris, x=iris_x, y=iris_y, size=iris_size, color="species",
-                        width=600, height=500, use_container_width=False)
+                        width=800, height=500, use_container_width=False)
     else:
         st.scatter_chart(iris, x=iris_x, y=iris_y, size=iris_size, 
-                         width=600, height=500, use_container_width=False)
+                         width=800, height=500, use_container_width=False)
 
 
 with st.expander("Show documentation"):
@@ -162,7 +246,7 @@ with st.container(border=True):
 st.markdown("#### :material/bar_chart: :red[Rendered output]") 
 with st.container(border=True):
     st.bar_chart(tips, x=tips_x, y=tips_y, color=tips_color, horizontal=tips_horizontal,
-                 width=600, height=500, use_container_width=False)
+                 width=800, height=500, use_container_width=False)
 
 with st.expander("Show documentation"):
     st.write(st.bar_chart.__doc__)

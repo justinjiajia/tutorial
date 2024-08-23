@@ -3,6 +3,9 @@ import streamlit as st
 
 st.set_page_config(layout="wide")
 
+with open( "static/font.css" ) as css:
+    st.markdown( f'<style>{css.read()}</style>' , unsafe_allow_html= True)
+    
 st.markdown("""`st.container` allows us to inserts an invisible container into our app that can hold multiple elements.
 
 <img src="https://docs.streamlit.io/images/api/container.jpg" width=400/>
