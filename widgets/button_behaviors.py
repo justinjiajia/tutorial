@@ -50,6 +50,6 @@ with st.expander("Explanation"):
                 
 The values of all the other widgets remain persistent across reruns except for button-like widgets.
 
-By default, the `st.button` function has a value of `False`and transitions to `True` temporarily when clicked. It lasts only for a single run before reverting to `False`.
+By default, the `st.button` function has a value of `False`and transitions to `True` temporarily when clicked. It only lasts for a single run before reverting to `False`.
 """)
     

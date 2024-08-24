@@ -26,15 +26,15 @@ st.write(medals)
 
 st.divider()
 
-st.markdown("### [<code>st.line_chart</code>](https://docs.streamlit.io/develop/api-reference/charts/st.line_chart)", unsafe_allow_html=True)
 
-
-st.markdown("""
+st.markdown("## :material/list_alt: [`st.line_chart()`](https://docs.streamlit.io/develop/api-reference/charts/st.line_chart)")
+st.markdown("""### <br/>
+            
 For some datasets, we may want to understand changes in one variable as a function of time, or a similarly continuous variable. In this situation, a good choice is to draw a line chart, 
 as it represents changes in value by sequentially connecting points with line segments.
 
 If we align `color` with a categorical variable (i.e., a column that contains discrete values), data points will be grouped into lines of the same color based on the value of this variable. As a result, we can inspect the trends of different data series in one place.
-""")
+""", unsafe_allow_html=True)
 
 code ="""
 st.line_chart(stocks, x="date", y="return", color="symbol")
@@ -66,16 +66,17 @@ with st.expander("Show documentation"):
 
 st.divider()
 
-st.markdown("### [<code>st.area_chart</code>](https://docs.streamlit.io/develop/api-reference/charts/st.area_chart)", unsafe_allow_html=True)
 
+st.markdown("## :material/list_alt: [`st.area_chart()`](https://docs.streamlit.io/develop/api-reference/charts/st.area_chart)")
 
-st.markdown("""
+st.markdown("""<br/>
+            
 Area charts are a type of chart that uses filled areas to represent the evolution of values over time or another continuous variable. 
             
 Additionally, by stacking multiple area segments on top of each other,
 an area chart allows us to visualize the cumulative sum or total of the values at each point, along with the individual trends.
 
-""")
+""", unsafe_allow_html=True)
 
 code ="""
 st.area_chart(medals, x="year", y="total", color="type", stack=True)

@@ -4,13 +4,15 @@ st.set_page_config(layout="wide")
 
 with open( "static/font.css" ) as css:
     st.markdown( f'<style>{css.read()}</style>' , unsafe_allow_html= True)
-    
+
 code = """if "msg_1" not in st.session_state:
     st.session_state.msgs_1 = []
 
 def send_message_1():
     st.session_state.msgs_1.append({"user": st.session_state.user_1,
                                     "content": st.session_state.msg_1})
+    st.session_state.msg_1 = ""
+
 def clear_history_1():
     st.session_state.msgs_1 = []
 
@@ -35,6 +37,8 @@ if "msg_1" not in st.session_state:
 def send_message_1():
     st.session_state.msgs_1.append({"user": st.session_state.user_1,
                                     "content": st.session_state.msg_1})
+    st.session_state.msg_1 = ""
+
 def clear_history_1():
     st.session_state.msgs_1 = []
 
@@ -67,6 +71,8 @@ To add elements to a form object, we can either
 2) or call methods directly on the form object.
 """)
 
+st.markdown("#### :material/code_blocks: :blue[Source code to run]")
+
 code = """# approach 1
 with st.form("form"):
     st.selectbox("Choose user", ["👧", "👱‍♀️", "👨🏿", "👴"])
@@ -87,7 +93,6 @@ with st.container(border=True):
 
 
 
-
 st.markdown("#### :material/widgets: :red[Rendered output]")
  
 chat = st.form("form")
@@ -95,9 +100,11 @@ chat.selectbox("Choose user", ["👧", "👱‍♀️", "👨🏿", "👴"])
 chat.text_input("Enter your message", placeholder="hey, what's up?", label_visibility="collapsed")
 chat.form_submit_button('Send')
 
-st.markdown("""Note that every form must contain a `st.form_submit_button`. Other button-like widgets (i.e., `st.button` and `st.download_button`) can not be used within a form.
+st.markdown("""<br/>
 
-When the submission button is pressed, all frontend values inside the form are sent to the backend in batch, and the script reruns.""")
+Note that every form must contain a `st.form_submit_button`. Other button-like widgets (i.e., `st.button` and `st.download_button`) can not be used within a form.
+
+When the submission button is pressed, all frontend values inside the form are sent to the backend in batch, and the script reruns.""", unsafe_allow_html=True)
 
 
 st.markdown("""Recall: for widgets outside of a form, when a user changes a widget's value on the frontend, the following events will occur in sequence:
@@ -128,6 +135,8 @@ code = """if "msgs_2" not in st.session_state:
 def send_message_2():
     st.session_state.msgs_2.append({"user": st.session_state.user_2,
                                     "content": st.session_state.msg_2})
+    st.session_state.msg_2 = ""
+
 def clear_history_2():
     st.session_state.msgs_2 = []
 
@@ -155,6 +164,8 @@ if "msgs_2" not in st.session_state:
 def send_message_2():
     st.session_state.msgs_2.append({"user": st.session_state.user_2,
                                     "content": st.session_state.msg_2})
+    st.session_state.msg_2 = ""
+
 def clear_history_2():
     st.session_state.msgs_2 = []
 

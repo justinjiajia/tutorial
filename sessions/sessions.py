@@ -163,7 +163,7 @@ with st.container(border=True):
     if "bucket_list" not in st.session_state:
         st.session_state["bucket_list"] = []
     
-    st.subheader("My Bucket List:")
+    st.subheader("My Bucket List")
 
     dest = st.text_input("Where do you want to travel?")
     clicked = st.button("Add to list")

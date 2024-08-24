@@ -25,7 +25,7 @@ if "adv_to_do_list" not in st.session_state:
     st.session_state["adv_to_do_list"] = []
 
 with st.container(border=True):
-    st.subheader("My To-do List:")
+    st.subheader("My To-do List")
 
     def add_item():
         if thing_to_add not in st.session_state.adv_to_do_list and thing_to_add is not None:  

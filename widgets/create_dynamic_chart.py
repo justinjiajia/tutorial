@@ -39,6 +39,8 @@ st.markdown("""### :material/description:  Requirements
 
 st.divider()
 
+st.markdown("#### :material/widgets: :red[Expected output]")
+
 with st.container(border=True):
     stocks = st.multiselect("Select stocks for comparison", source.symbol.unique(), ['AMZN', 'AAPL'])
     all_years = st.checkbox("Show prices for the whole period")

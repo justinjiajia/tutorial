@@ -35,6 +35,8 @@ st.markdown("""### :material/description:  Requirements
 
 st.divider()
 
+st.markdown("#### :material/ssid_chart: :red[Expected output]")
+
 with st.container(border=True):
     
     st.markdown(f"### Stock prices")

@@ -24,7 +24,7 @@ if "to_do_list" not in st.session_state:
 st.markdown("#### :material/widgets: :red[Expected output]")
 
 with st.container(border=True):
-    st.subheader("My To-do List:")
+    st.subheader("My To-do List")
 
     thing = st.text_input("Things to add")
     add = st.button("Add to list")

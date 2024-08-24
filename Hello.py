@@ -32,18 +32,28 @@ tabs = st.Page("layouts/tabs.py", title="Tabs")
 
 
 sessions = st.Page("sessions/sessions.py", title="Session and Session State")
-check_state_item = st.Page("sessions/check_state_item.py", title="Check persistence of a state item")
+check_state_item = st.Page("sessions/check_state_item.py", title="Checking persistence of a state item")
 create_todo_list = st.Page("sessions/create_todo_list.py", title="🎯Practice: Create to-do list")
+count_reruns = st.Page("sessions/count_reruns.py", title="Counting reruns")
+
+caching_intro =  st.Page("caching/caching_intro.py", title="Introduction")
+data_caching =  st.Page("caching/data_caching.py", title="Data caching")
+
 test = st.Page("test.py", title="Test")
 
 elements_pages = [data_elements, media_elements]
 charts_pages = [ visual_intro, native_charts, create_charts, supported_libs]
 widgets_pages = [intro, create_dynamic_chart, defaults, button, keys, value_init, callbacks, 
                  show_hide_message, display_image, advanced_todo_list, forms, cleanup]
-sessions_pages = [sessions, check_state_item, create_todo_list]
+sessions_pages = [sessions, check_state_item, count_reruns, create_todo_list]
+caching_pages = [caching_intro, data_caching]
 layouts_pages = [sidebar, columns, containers, chat_UI, tabs]
 
-pg = st.navigation({"📑Page elements": elements_pages, "📊Charts": charts_pages, "📱Widgets": widgets_pages,  "🕓Sessions": sessions_pages, 
+pg = st.navigation({"📑Page elements": elements_pages, 
+                    "📊Charts": charts_pages, 
+                    "📱Widgets": widgets_pages,
+                    "🕓Sessions": sessions_pages, 
+                    "Caching":  caching_pages,
                     "📰Layouts": layouts_pages, 
                     "Test": [test]})
 
