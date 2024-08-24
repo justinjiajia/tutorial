@@ -1,8 +1,9 @@
 
 
 import streamlit as st
-import pandas as pd
 from time import perf_counter
+
+import pandas as pd
 
 st.set_page_config(layout="wide")
 
@@ -16,12 +17,13 @@ import streamlit as st
 import pandas as pd
 from time import perf_counter
 
-url_1 = st.text_input("", "https://raw.githubusercontent.com/justinjiajia/datafiles/main/EcommercePurchases.csv",
-                       label_visibility="collapsed", key="url_1")
+url_1 = st.text_input("url_1", "https://raw.githubusercontent.com/vega/vega-datasets/main/data/flights-3m.csv",
+                      label_visibility="collapsed", key="url_1")
 
 if st.button("Show", key="btn_1"):
     start = perf_counter()
-    st.write(pd.read_csv(url_1))
+    data = load_data(url_1)
+    st.write(data)
     end = perf_counter()
     st.write(f":red[It took {(end - start):.3f} seconds to load the data!]")
 """
@@ -31,10 +33,10 @@ st.markdown("#### :material/code_blocks: :blue[Source code to run]")
 with st.container(border=True):
     st.code(code)
 
-st.markdown("#### :material/widgets: :red[Expected output]")   
+st.markdown("#### :material/widgets: :red[Rendered output]")
 
 with st.container(border=True):
-    url_1 =  st.text_input("url_1", "https://raw.githubusercontent.com/justinjiajia/datafiles/main/EcommercePurchases.csv",
+    url_1 =  st.text_input("url_1", "https://raw.githubusercontent.com/vega/vega-datasets/main/data/flights-3m.csv",
                         label_visibility="collapsed", key="url_1")
 
     if st.button("Show", key="btn_1"):
@@ -47,7 +49,7 @@ with st.container(border=True):
 st.divider()
 
 
-st.markdown("## :material/list_alt: [`@st.cache_data`](https://docs.streamlit.io/develop/api-reference/caching-and-state/st.cache_data)")
+st.markdown("### :material/list_alt: [`@st.cache_data`](https://docs.streamlit.io/develop/api-reference/caching-and-state/st.cache_data)")
 
 st.markdown(
 """<br/>
@@ -67,12 +69,13 @@ from time import perf_counter
 def load_data(url):
     return pd.read_csv(url)
 
-url_2 = st.text_input("", "https://raw.githubusercontent.com/justinjiajia/datafiles/main/EcommercePurchases.csv",
-                       label_visibility="collapsed", key="url_2")
+url_2 = st.text_input("url_2", "https://raw.githubusercontent.com/vega/vega-datasets/main/data/flights-3m.csv",
+                      label_visibility="collapsed", key="url_2")
 
 if st.button("Show", key="btn_2"):
     start = perf_counter()
-    st.write(load_data(url_2))
+    data = load_data(url_2)
+    st.write(data)
     end = perf_counter()
     st.write(f":red[It took {(end - start):.3f} seconds to load the data!]")
 """
@@ -82,14 +85,14 @@ st.markdown("#### :material/code_blocks: :blue[Source code to run]")
 with st.container(border=True):
     st.code(code)
 
-st.markdown("#### :material/widgets: :red[Expected output]")
+st.markdown("#### :material/widgets: :red[Rendered output]")
 
 @st.cache_data(show_spinner="Loading data ...")
 def load_data(url):
     return pd.read_csv(url)
 
 with st.container(border=True):
-    url_2 =  st.text_input("url_2", "https://raw.githubusercontent.com/justinjiajia/datafiles/main/EcommercePurchases.csv",
+    url_2 =  st.text_input("url_2", "https://raw.githubusercontent.com/vega/vega-datasets/main/data/flights-3m.csv",
                         label_visibility="collapsed")
 
     if st.button("Show", key="btn_2"):
@@ -101,7 +104,7 @@ with st.container(border=True):
 
 st.write("Try a different URL: ")
 
-st.code("https://raw.githubusercontent.com/justinjiajia/datafiles/main/price.csv")
+st.code("https://raw.githubusercontent.com/plotly/datasets/master/data.csv", language="markup")
 
 
 st.info("Cached values will be updated automatically as the function code changes, ensuring that the latest changes are reflected in the cache.")
@@ -111,12 +114,31 @@ st.info("Cached values will be updated automatically as the function code change
 st.divider()
 
 
-st.info("Cached values are available to all users of your app. If you need to save results that should only be accessible within a session, use Session State instead.")
 
 
-    
+st.markdown("""
+Cached values persist across user sessions and are available to all users of a Streamlit app. 
 
-st.markdown
-("""
-You can clear a function's cache with `func.clear()` or clear the entire cache with `st.cache_data.clear()`.
+If we need to save results that should only be accessible within a session, use Session State instead.
+
+We can clear a function's cache with `func.clear()` or clear the entire cache with `st.cache_data.clear()`.
 """)
+
+st.markdown("#### :material/code_blocks: :blue[Source code to run]")
+
+code = """
+if st.button("Clear cache"): load_data.clear()
+"""
+
+
+with st.container(border=True):
+    st.code(code)
+
+st.markdown("#### :material/widgets: :red[Rendered output]")
+
+with st.container(border=True):
+    if st.button("Clear cache"): load_data.clear()
+ 
+
+
+

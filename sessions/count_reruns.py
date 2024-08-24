@@ -26,7 +26,7 @@ st.markdown("#### :material/code_blocks: :blue[Source code to run]")
 with st.container(border=True):
     st.code(code)
 
-st.markdown("#### :material/widgets: :red[Expected output]")  
+st.markdown("#### :material/widgets: :red[Rendered output]")  
 
 if "count_reruns" not in st.session_state:
     st.session_state.count_reruns = 0

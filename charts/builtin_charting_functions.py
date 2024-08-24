@@ -1,5 +1,11 @@
 import streamlit as st
 
+import sys
+
+sys.path.append('..')
+
+from utils import load_to_df
+
 st.set_page_config(layout="wide")
 
 with open( "static/font.css" ) as css:
@@ -15,11 +21,17 @@ st.markdown("### :material/dataset: Data to use")
 
 
 
-with st.echo():
-    import pandas as pd
-    medals = pd.read_csv(
-        'https://raw.githubusercontent.com/justinjiajia/datafiles/main/medals.csv', parse_dates=['year']
+code = """
+import pandas as pd
+
+medals = pd.read_csv(
+    'https://raw.githubusercontent.com/justinjiajia/datafiles/main/medals.csv', parse_dates=['year']
     ).query("country == 'China'")
+"""
+
+st.code(code)
+
+medals = load_to_df('https://raw.githubusercontent.com/justinjiajia/datafiles/main/medals.csv', parse_dates=['year']).query("country == 'China'")    
 
 
 st.write(medals)
@@ -27,8 +39,9 @@ st.write(medals)
 st.divider()
 
 
-st.markdown("## :material/list_alt: [`st.line_chart()`](https://docs.streamlit.io/develop/api-reference/charts/st.line_chart)")
-st.markdown("""### <br/>
+st.markdown("### :material/list_alt: [`st.line_chart()`](https://docs.streamlit.io/develop/api-reference/charts/st.line_chart)")
+
+st.markdown("""<br/>
             
 For some datasets, we may want to understand changes in one variable as a function of time, or a similarly continuous variable. In this situation, a good choice is to draw a line chart, 
 as it represents changes in value by sequentially connecting points with line segments.
@@ -36,11 +49,11 @@ as it represents changes in value by sequentially connecting points with line se
 If we align `color` with a categorical variable (i.e., a column that contains discrete values), data points will be grouped into lines of the same color based on the value of this variable. As a result, we can inspect the trends of different data series in one place.
 """, unsafe_allow_html=True)
 
-code ="""
-st.line_chart(stocks, x="date", y="return", color="symbol")
-"""
-
 st.markdown("#### :material/code_blocks: :blue[Source code to run]")
+
+code ="""
+st.line_chart(medals, x="date", y="return", color="symbol")
+"""
 
 with st.container(border=True):
     st.code(code)
@@ -59,7 +72,6 @@ with st.container(border=True):
 ##""")
 
 
-
 with st.expander("Show documentation"):
     st.write(st.line_chart.__doc__)
 
@@ -67,7 +79,7 @@ with st.expander("Show documentation"):
 st.divider()
 
 
-st.markdown("## :material/list_alt: [`st.area_chart()`](https://docs.streamlit.io/develop/api-reference/charts/st.area_chart)")
+st.markdown("### :material/list_alt: [`st.area_chart()`](https://docs.streamlit.io/develop/api-reference/charts/st.area_chart)")
 
 st.markdown("""<br/>
             
@@ -98,10 +110,11 @@ For easy comparison, we also show a chart created from turning off the `stack` o
 """, unsafe_allow_html=True)
 
 
+st.markdown("#### :material/code_blocks: :blue[Source code to run]")
+
 code ="""
 st.area_chart(china_medals, x="year", y="total", color="type", stack=False)
 """
-st.markdown("#### :material/code_blocks: :blue[Source code to run]")
 
 with st.container(border=True):
     st.code(code)
@@ -115,7 +128,7 @@ with st.container(border=True):
 st.markdown("""<br/>
 
 Streamlit also allows us to customize the colors used for different categories.
-However, to leverage this color customization feature,  it's necessary to first transform our DataFrame into a wide format.
+However, to leverage this color customization feature,  it's necessary to first transform the DataFrame into a wide format.
 
 In such a wide format, categories are no longer represented as distinct values within a single column (e.g., `total`).
 Rather, they are mapped into independent columns (e.g., `Gold`, `Silver`, and `Bronze`).
@@ -123,11 +136,19 @@ Rather, they are mapped into independent columns (e.g., `Gold`, `Silver`, and `B
 
 st.markdown("### :material/dataset: Data to use")
 
-with st.echo():
-    import pandas as pd
-    medals_w = pd.read_csv(
-        'https://raw.githubusercontent.com/justinjiajia/datafiles/main/medals_w.csv', parse_dates=['year']
+
+code = """
+import pandas as pd
+
+medals_w = pd.read_csv(
+    'https://raw.githubusercontent.com/justinjiajia/datafiles/main/medals_w.csv', parse_dates=['year']
     ).query("country == 'China'")
+"""
+
+with st.container():
+    st.code(code)
+
+medals_w = load_to_df('https://raw.githubusercontent.com/justinjiajia/datafiles/main/medals_w.csv', parse_dates=['year']).query("country == 'China'")    
 
 st.write(medals_w)
 
@@ -158,22 +179,31 @@ st.divider()
 
 st.markdown("### :material/dataset: Data to use")
 
-with st.echo():
-    import pandas as pd
-    iris = pd.read_csv('https://raw.githubusercontent.com/mwaskom/seaborn-data/master/iris.csv')
+code = """
+import pandas as pd
+
+iris = pd.read_csv('https://raw.githubusercontent.com/mwaskom/seaborn-data/master/iris.csv')
+"""
+
+with st.container():
+    st.code(code)
+
+iris = load_to_df('https://raw.githubusercontent.com/mwaskom/seaborn-data/master/iris.csv')
+
 
 st.write(iris)
 
 st.divider()
 
-st.markdown("### [<code>st.scatter_chart</code>](https://docs.streamlit.io/develop/api-reference/charts/st.scatter_chart)", unsafe_allow_html=True)
+st.markdown("### :material/list_alt: [`st.scatter_chart()`](https://docs.streamlit.io/develop/api-reference/charts/st.scatter_chart)")
+
+st.markdown("<br/>", unsafe_allow_html=True)
 
 col1, col2 = st.columns(2)
 
 iris_x = col1.selectbox("Choose variable for coordinate x", ["sepal_length", "sepal_width", "petal_length", "petal_width"])
 iris_y = col2.selectbox("Choose variable for coordinate y", ["sepal_length", "sepal_width", "petal_length", "petal_width"], index=1)
-iris_size =  st.selectbox("Choose variable for size", ["sepal_length", "sepal_width", "petal_length", "petal_width"], 
-                     index=None)
+iris_size = st.selectbox("Choose variable for size", ["sepal_length", "sepal_width", "petal_length", "petal_width"], index=None)
 iris_color = st.checkbox("Use color to annotate species")
 
 if iris_size:
@@ -210,18 +240,26 @@ st.divider()
 
 st.markdown("### :material/dataset: Data to use")
 
-with st.echo():
-    import pandas as pd
-    tips = pd.read_csv('https://raw.githubusercontent.com/mwaskom/seaborn-data/master/tips.csv')
 
+code = """
+import pandas as pd
 
+tips = pd.read_csv('https://raw.githubusercontent.com/mwaskom/seaborn-data/master/tips.csv')
+"""
 
+with st.container():
+    st.code(code)
+
+tips = load_to_df('https://raw.githubusercontent.com/mwaskom/seaborn-data/master/tips.csv')
 
 st.write(tips)
 
 st.divider()
 
-st.markdown("### [<code>st.bar_chart</code>](https://docs.streamlit.io/develop/api-reference/charts/st.bar_chart)", unsafe_allow_html=True)
+st.markdown("### :material/list_alt: [`st.bar_chart()`](https://docs.streamlit.io/develop/api-reference/charts/st.bar_chart)")
+
+st.markdown("<br/>", unsafe_allow_html=True)
+
 
 col3, col4 = st.columns(2)
 tips_x = col3.selectbox("Choose variable for coordinate x", ["sex", "day", "smoker", "time"])
@@ -257,10 +295,17 @@ st.divider()
 
 st.markdown("### :material/dataset: Data to use")
 
-with st.echo():
-    import pandas as pd
-    us_city_pop = pd.read_csv("https://raw.githubusercontent.com/plotly/datasets/master/2014_us_cities.csv")
-    
+
+code = """
+import pandas as pd
+
+us_city_pop = pd.read_csv("https://raw.githubusercontent.com/plotly/datasets/master/2014_us_cities.csv")
+"""
+
+with st.container():
+    st.code(code)
+
+us_city_pop = load_to_df('https://raw.githubusercontent.com/plotly/datasets/master/2014_us_cities.csv')
 
 
 st.write(us_city_pop)
@@ -272,8 +317,10 @@ us_city_pop["pop"] = us_city_pop["pop"] / 20
 code = """
 st.map(us_city_pop, latitude="lat", longitude="lon", size="pop")
 """
-st.markdown("### [<code>st.map</code>](https://docs.streamlit.io/develop/api-reference/charts/st.map)", unsafe_allow_html=True)
 
+st.markdown("### :material/list_alt: [`st.map()`](https://docs.streamlit.io/develop/api-reference/charts/st.map)")
+
+st.markdown("<br/>", unsafe_allow_html=True)
 
 st.markdown("#### :material/code_blocks: :blue[Source code to run]")
 

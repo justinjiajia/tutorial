@@ -1,4 +1,9 @@
 import streamlit as st
+import sys
+
+sys.path.append('..')
+
+from utils import load_to_df
 
 st.set_page_config(layout="wide")
 
@@ -6,14 +11,22 @@ with open( "static/font.css" ) as css:
     st.markdown( f'<style>{css.read()}</style>' , unsafe_allow_html= True)
 
 
-st.markdown("## Creat charts for stock comparison")
+st.markdown("## 🎯 Charts for stock price comparison")
             
 st.markdown("### :material/dataset: Data to use")
 
-with st.echo():
-    import pandas as pd
-    stocks = pd.read_csv("https://raw.githubusercontent.com/vega/vega-datasets/main/data/stocks.csv", 
-                         parse_dates=['date'], date_format="%b %d %Y")
+
+code = """
+import pandas as pd
+
+stocks = pd.read_csv("https://raw.githubusercontent.com/vega/vega-datasets/main/data/stocks.csv", 
+                     parse_dates=['date'], date_format="%b %d %Y")
+"""
+
+st.code(code)
+    
+stocks = load_to_df("https://raw.githubusercontent.com/vega/vega-datasets/main/data/stocks.csv", 
+                    parse_dates=['date'], date_format="%b %d %Y")
 
 #with st.echo():
 #    import pandas as pd

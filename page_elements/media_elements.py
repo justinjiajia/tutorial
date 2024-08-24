@@ -2,7 +2,8 @@ import streamlit as st
 
 st.set_page_config(layout="centered")
 
-st.markdown("### [<code>st.image</code>](https://docs.streamlit.io/develop/api-reference/media/st.image)", unsafe_allow_html=True)
+st.markdown("### :material/list_alt: [`st.image()`](https://docs.streamlit.io/develop/api-reference/media/st.image)")
+
 
 with st.container(border=True):
     with st.echo():
@@ -22,7 +23,8 @@ with st.expander("Show documentation"):
 
 st.divider()
 
-st.markdown("### [<code>st.video</code>](https://docs.streamlit.io/develop/api-reference/media/st.video)", unsafe_allow_html=True)
+st.markdown("### :material/list_alt: [`st.video()`](https://docs.streamlit.io/develop/api-reference/media/st.video)")
+
 
 with st.container(border=True):
     with st.echo():
