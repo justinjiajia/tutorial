@@ -103,6 +103,6 @@ with st.container(border=True):
 
 st.markdown("""Every time we update a widget associated with a key, the corresponding item in `st.session_state` gets updated as well.""")
     
-st.markdown("""Therefore, widget keys serve two purposes:
+st.markdown("""Therefore, widget keys can serve two purposes:
 - Distinguishing two otherwise identical widgets;
 - Providing a means to access (and manipulate) the widget's value through `st.session_state`.""")    

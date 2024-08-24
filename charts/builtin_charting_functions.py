@@ -88,32 +88,18 @@ Area charts are a type of chart that uses filled areas to represent the evolutio
 Additionally, by stacking multiple area segments on top of each other,
 an area chart also allows us to visualize the cumulative sum or total of the values at each point, along with the individual trends.
 
-""", unsafe_allow_html=True)
-
-code ="""
-st.area_chart(medals, x="year", y="total", color="type", stack=True)
-"""
-st.markdown("#### :material/code_blocks: :blue[Source code to run]")
-
-with st.container(border=True):
-    st.code(code)
-
-st.markdown("#### :material/area_chart: :red[Rendered output]") 
-with st.container(border=True):
-    st.area_chart(medals, x="year", y="total", color="type", stack=True,
-                 width=720, height=500, use_container_width=False)
-
-
-st.markdown("""<br/>
-
-For easy comparison, we also show a chart created from turning off the `stack` option below:
+<br/>
 """, unsafe_allow_html=True)
 
 
+stack = st.toggle("Stack medals", value=True)
+
+
+ 
 st.markdown("#### :material/code_blocks: :blue[Source code to run]")
 
-code ="""
-st.area_chart(china_medals, x="year", y="total", color="type", stack=False)
+code =f"""
+st.area_chart(medals, x="year", y="total", color="type", stack={stack})
 """
 
 with st.container(border=True):
@@ -121,8 +107,15 @@ with st.container(border=True):
 
 st.markdown("#### :material/area_chart: :red[Rendered output]") 
 with st.container(border=True):
-    st.area_chart(medals, x="year", y="total", color="type", stack=False,
+    st.area_chart(medals, x="year", y="total", color="type", stack=stack,
                  width=720, height=500, use_container_width=False)
+
+
+
+with st.expander("Show documentation"):
+    st.write(st.area_chart.__doc__)
+
+st.divider()
     
 
 st.markdown("""<br/>
@@ -153,11 +146,30 @@ medals_w = load_to_df('https://raw.githubusercontent.com/justinjiajia/datafiles/
 st.write(medals_w)
 
 
-code ="""
-st.area_chart(medals_w, x="year", y=['Bronze', 'Gold', 'Silver'], 
-              color=["#A77044", "#FEE101", "#A7A7AD"], stack=True)
-"""
+st.divider()
+
+chart_type = st.selectbox("Select chart type", ["Area", "Line"])
+
 st.markdown("#### :material/code_blocks: :blue[Source code to run]")
+
+if chart_type == "Area":
+    code ="""
+    # "#A77044", "#FEE101", and "#A7A7AD" are the Hex color codes for Bronze, Gold, and Silver, respectively
+    # https://www.schemecolor.com/olympic-medals-color-scheme.php
+
+    st.area_chart(medals_w, x="year", y=['Bronze', 'Gold', 'Silver'], 
+                  color=["#A77044", "#FEE101", "#A7A7AD"], stack=True)
+    """
+else:
+    code ="""
+    # "#A77044", "#FEE101", and "#A7A7AD" are the Hex color codes for Bronze, Gold, and Silver, respectively
+    # https://www.schemecolor.com/olympic-medals-color-scheme.php
+
+    st.line_chart(medals_w, x="year", y=['Bronze', 'Gold', 'Silver'], 
+                  color=["#A77044", "#FEE101", "#A7A7AD"])
+    """
+
+
 
 with st.container(border=True):
     st.code(code)
@@ -167,12 +179,14 @@ st.markdown("#### :material/area_chart: :red[Rendered output]")
 # Streamlit chart functions sort column names automatically ; even if we put ['Gold', 'Silver', 'Bronze'], we still get these names sorted in dictionary order
 # "#A77044" is the color for Bronze; "#FEE101" is the color for gold
 with st.container(border=True):
-    st.area_chart(medals_w, x="year", y=['Gold', 'Silver', 'Bronze'], color=["#A77044", "#FEE101", "#A7A7AD"], stack=True,
-                 width=720, height=500, use_container_width=False)
-    
+    if chart_type == "Area":
+        st.area_chart(medals_w, x="year", y=['Gold', 'Silver', 'Bronze'], color=["#A77044", "#FEE101", "#A7A7AD"], stack=True,
+                    width=720, height=500, use_container_width=False)
+    else:
+        st.line_chart(medals_w, x="year", y=['Gold', 'Silver', 'Bronze'], color=["#A77044", "#FEE101", "#A7A7AD"],
+                    width=720, height=500, use_container_width=False)
 
-with st.expander("Show documentation"):
-    st.write(st.area_chart.__doc__)
+
 
 
 st.divider()

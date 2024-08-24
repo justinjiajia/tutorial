@@ -53,7 +53,7 @@ pg = st.navigation({"📑Page elements": elements_pages,
                     "📊Charts": charts_pages, 
                     "📱Widgets": widgets_pages,
                     "🕓Sessions": sessions_pages, 
-                    "Caching":  caching_pages,
+                    "🗃️Caching":  caching_pages,
                     "📰Layouts": layouts_pages, 
                     "Test": [test]})
 
