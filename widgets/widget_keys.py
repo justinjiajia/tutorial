@@ -83,7 +83,7 @@ st.divider()
 st.markdown("""
 When a widget is associated with a key, its value will be automatically added as a new item to a global dictionary, called ***Session State***.
 
-Then, we can use either an attribute-style or a dictionary-style syntax to read that item from the `st.session_state` API.
+Then, we can use either an attribute-style or a dictionary-style syntax to read that item via the `st.session_state` API.
 """)
 
 

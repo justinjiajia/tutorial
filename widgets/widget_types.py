@@ -1,6 +1,5 @@
 import streamlit as st
 
- 
 st.set_page_config(layout="wide")
 
 with open( "static/font.css" ) as css:
@@ -8,7 +7,12 @@ with open( "static/font.css" ) as css:
 
 st.markdown("## Widgets that return string values")
 
-st.markdown("### [<code>st.selectbox</code>](https://docs.streamlit.io/develop/api-reference/widgets/st.selectbox)", unsafe_allow_html=True)
+
+st.markdown("### :material/list_alt: [`st.selectbox()`](https://docs.streamlit.io/develop/api-reference/widgets/st.selectbox)")
+
+st.markdown("<br/>", unsafe_allow_html=True)
+
+
 with st.container(border=True):
     with st.echo("below"):
         # default to the 1st option
@@ -23,32 +27,50 @@ with st.expander("Show documentation"):
     st.write(st.selectbox.__doc__)
 st.divider()
 
-st.markdown("### [<code>st.radio</code>](https://docs.streamlit.io/develop/api-reference/widgets/st.radio)", unsafe_allow_html=True)
+st.markdown("### :material/list_alt: [`st.radio()`](https://docs.streamlit.io/develop/api-reference/widgets/st.radio)")
+
+st.markdown("<br/>", unsafe_allow_html=True)
+
 with st.container(border=True):
     with st.echo("below"):
         # default to the 1st option
-        genre_str = st.radio("What's your favorite movie genre?",
-                             ["Comedy", "Drama", "Documentary"])
+        genre_str = st.radio(
+            "What's your favorite movie genre?",
+            ["Comedy", "Drama", "Documentary"]
+        )
+        
 st.markdown(f"The value of variable <code>genre_str</code> is <code>'{genre_str}'</code> of <code>{type(genre_str)}</code>.",
             unsafe_allow_html=True)
 with st.expander("Show documentation"):
     st.write(st.radio.__doc__)
+
 st.divider()
 
-st.markdown("### [<code>st.text_input</code>](https://docs.streamlit.io/develop/api-reference/widgets/st.text_input)", unsafe_allow_html=True)
-st.info("Simply typing inside the widget won't rerun its widget function to return a new value. An update is triggered either by clicking or tabbing out of the widget or by pressing Enter.")
+st.markdown("### :material/list_alt: [`st.text_input()`](https://docs.streamlit.io/develop/api-reference/widgets/st.text_input)")
+
+st.markdown("<br/>", unsafe_allow_html=True)
+
+
 with st.container(border=True):
     with st.echo("below"):
     # default to an empty string
         name_str = st.text_input("Entuer your username")
 st.markdown(f"The value of variable <code>name_str</code> is <code>'{name_str}'</code> of <code>{type(name_str)}</code>.",
             unsafe_allow_html=True)
+
+
+st.info("Simply typing inside the widget won't rerun its widget function to return a new value. An update is triggered either by clicking or tabbing out of the widget or by pressing `Enter`.", 
+        icon="🚨")
+
 with st.expander("Show documentation"):
     st.write(st.text_input.__doc__)
+
 st.divider()
  
-st.markdown("### [<code>st.text_area</code>](https://docs.streamlit.io/develop/api-reference/widgets/st.text_area)", unsafe_allow_html=True)
-st.info("Simply typing inside the widget won't rerun its widget function to return a new value. An update is triggered either by clicking or tabbing out of the widget or by pressing Ctrl+Enter.")
+st.markdown("### :material/list_alt: [`st.text_area()`](https://docs.streamlit.io/develop/api-reference/widgets/st.text_area)")
+
+st.markdown("<br/>", unsafe_allow_html=True)
+
 with st.container(border=True):
     with st.echo("below"):
         # default to an empty string
@@ -57,15 +79,27 @@ st.markdown(f"The value of variable <code>name_str</code> is<br><code>'''{txt_st
             unsafe_allow_html=True)
 with st.expander("Show documentation"):
     st.write(st.text_area.__doc__)
+
+
+st.info("Simply typing inside the widget won't rerun the widget function to return a new value. An update is triggered either by clicking or tabbing out of the widget or by pressing `Ctrl+Enter`.",
+        icon="🚨")
+
+
 st.divider()
 
 st.markdown("### Widgets that return list values")
-st.markdown("#### [<code>st.multiselect</code>](https://docs.streamlit.io/develop/api-reference/widgets/st.multiselect)", unsafe_allow_html=True)
+
+st.markdown("### :material/list_alt: [`st.multiselect()`](https://docs.streamlit.io/develop/api-reference/widgets/st.multiselect)")
+
+st.markdown("<br/>", unsafe_allow_html=True)
+ 
 with st.container(border=True):
     with st.echo("below"):
         # default to an empty list
-        colors_list = st.multiselect("What are your favorite colors",
-                                     ["Green", "Yellow", "Red", "Blue"])
+        colors_list = st.multiselect(
+            "What are your favorite colors",
+            ["Green", "Yellow", "Red", "Blue"]
+        )
 
 st.markdown(f"The value of variable <code>colors_list</code> is <code>{colors_list}</code> of <code>{type(colors_list)}</code>.",
             unsafe_allow_html=True)
@@ -74,8 +108,11 @@ with st.expander("Show documentation"):
 st.divider()
 
 st.markdown("### Widgets that return numeric values")
+ 
 
-st.markdown("#### [<code>st.slider</code>](https://docs.streamlit.io/develop/api-reference/widgets/st.slider)", unsafe_allow_html=True)
+st.markdown("### :material/list_alt: [`st.slider()`](https://docs.streamlit.io/develop/api-reference/widgets/st.slider)")
+
+st.markdown("<br/>", unsafe_allow_html=True)
 
 with st.container(border=True):
     with st.echo("below"):
@@ -99,13 +136,20 @@ with st.container(border=True):
 st.markdown(f"The value of variable <code>slider_int</code> is <code>{slider_int}</code> of <code>{type(slider_int)}</code>.",
             unsafe_allow_html=True)
 
-st.info("Passing a tuple/list of two numeric values as the value argument creates a range selector. Ensure the types of the numberic values to be consistent of those of the maximum and minimum values.")
+st.divider()
+
+st.markdown("""Passing a tuple/list of two numeric values as the `value` argument creates a range selector.
+
+Make sure that the types of the numberic values is consistent of those of the maximum and minimum values."""
+)
+
 with st.container(border=True):
     with st.echo("below"):
         # default to the minimum value
-        slider_float_range = st.slider('Choose a value',
-                                       min_value=10.0, max_value=50.0, 
-                                       value=(10.0, 20.0))
+        slider_float_range = st.slider(
+            'Choose a value', min_value=10.0, max_value=50.0,
+            value=(10.0, 20.0)
+        )
 st.markdown(f"The value of variable <code>slider_float_range</code> is <code>{slider_float_range}</code> of <code>{type(slider_float_range)}</code>.",
             unsafe_allow_html=True)
 
@@ -113,8 +157,7 @@ with st.container(border=True):
     with st.echo("below"):
         # default to the minimum value
         slider_int_range = st.slider(
-            'Choose a value',
-            min_value=10, max_value=50, 
+            'Choose a value', min_value=10, max_value=50, 
             value=[30, 40]
         )
 st.markdown(f"The value of variable <code>slider_int_range</code> is <code>{slider_int_range}</code> of <code>{type(slider_int_range)}</code>.",
@@ -126,7 +169,10 @@ with st.expander("Show documentation"):
 
 st.divider()
 
-st.markdown("#### [<code>st.number_input</code>](https://docs.streamlit.io/develop/api-reference/widgets/st.number_input)", unsafe_allow_html=True)
+st.markdown("### :material/list_alt: [`st.number_input()`](https://docs.streamlit.io/develop/api-reference/widgets/st.number_input)")
+
+st.markdown("<br/>", unsafe_allow_html=True)
+ 
 
 with st.container(border=True):
     with st.echo("below"):
@@ -148,7 +194,10 @@ st.divider()
 
 st.markdown("### Widgets that return Boolean values")
 
-st.markdown("#### [<code>st.checkbox</code>](https://docs.streamlit.io/develop/api-reference/widgets/st.checkbox)", unsafe_allow_html=True)
+st.markdown("### :material/list_alt: [`st.checkbox()`](https://docs.streamlit.io/develop/api-reference/widgets/st.checkbox)")
+
+st.markdown("<br/>", unsafe_allow_html=True)
+ 
 with st.container(border=True):
     with st.echo("below"):
         # default to False
@@ -159,7 +208,11 @@ with st.expander("Show documentation"):
     st.write(st.checkbox.__doc__)
 st.divider()
 
-st.markdown("#### [<code>st.toggle</code>](https://docs.streamlit.io/develop/api-reference/widgets/st.toggle)", unsafe_allow_html=True)
+st.markdown("### :material/list_alt: [`st.toggle()`](https://docs.streamlit.io/develop/api-reference/widgets/st.toggle)")
+
+st.markdown("<br/>", unsafe_allow_html=True)
+
+
 with st.container(border=True):
     with st.echo("below"):
         # default to False
@@ -171,7 +224,11 @@ with st.expander("Show documentation"):
 st.divider()
 
 st.markdown("### Widgets that return date/time values")
-st.markdown("#### [<code>st.time_input</code>](https://docs.streamlit.io/develop/api-reference/widgets/st.time_input)", unsafe_allow_html=True)
+
+st.markdown("### :material/list_alt: [`st.time_input()`](https://docs.streamlit.io/develop/api-reference/widgets/st.time_input)")
+
+st.markdown("<br/>", unsafe_allow_html=True)
+ 
 with st.container(border=True):
     with st.echo("below"):
         # default to the current time
@@ -182,7 +239,11 @@ with st.expander("Show documentation"):
     st.write(st.time_input.__doc__)
 st.divider()
 
-st.markdown("#### [<code>st.date_input</code>](https://docs.streamlit.io/develop/api-reference/widgets/st.date_input)", unsafe_allow_html=True)
+st.markdown("### :material/list_alt: [`st.date_input()`](https://docs.streamlit.io/develop/api-reference/widgets/st.date_input)")
+
+st.markdown("<br/>", unsafe_allow_html=True)
+ 
+
 with st.container(border=True):
     with st.echo("below"):
         # default to the current date

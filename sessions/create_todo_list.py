@@ -26,14 +26,12 @@ st.markdown("#### :material/widgets: :red[Expected output]")
 with st.container(border=True):
     st.subheader("My To-do List")
 
-    thing = st.text_input("Things to add")
-    add = st.button("Add to list")
-    clear = st.button("Clear list")
+    thing = st.text_input("Things to add", key="todo_text")
 
-    if add:
+    if st.button("Add to list", key="todo_add_btn"):
         st.session_state.to_do_list.append(thing)
 
-    if clear:
+    if st.button("Clear list", key="todo_clear_btn"):
         st.session_state.to_do_list = []
 
     if not st.session_state.to_do_list:

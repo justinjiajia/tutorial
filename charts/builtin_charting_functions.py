@@ -86,7 +86,7 @@ st.markdown("""<br/>
 Area charts are a type of chart that uses filled areas to represent the evolution of values over time or another continuous variable. 
             
 Additionally, by stacking multiple area segments on top of each other,
-an area chart allows us to visualize the cumulative sum or total of the values at each point, along with the individual trends.
+an area chart also allows us to visualize the cumulative sum or total of the values at each point, along with the individual trends.
 
 """, unsafe_allow_html=True)
 
@@ -106,7 +106,7 @@ with st.container(border=True):
 
 st.markdown("""<br/>
 
-For easy comparison, we also show a chart created from turning off the `stack` option here:
+For easy comparison, we also show a chart created from turning off the `stack` option below:
 """, unsafe_allow_html=True)
 
 
@@ -197,7 +197,15 @@ st.divider()
 
 st.markdown("### :material/list_alt: [`st.scatter_chart()`](https://docs.streamlit.io/develop/api-reference/charts/st.scatter_chart)")
 
-st.markdown("<br/>", unsafe_allow_html=True)
+st.markdown("""<br/>
+            
+A scatter chart uses the positioning of geometric shapes to visually epresent the values of two numeric variables in a data set.
+            
+It proves particularly useful for revealing relationships between the variables and illustrating how data points are distributed across the plane formed by them.
+            
+<br/>
+            
+""", unsafe_allow_html=True)
 
 col1, col2 = st.columns(2)
 

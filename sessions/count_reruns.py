@@ -12,11 +12,8 @@ if "count_reruns" not in st.session_state:
 st.session_state.count_reruns += 1   
 
 st.write(f"No. of runs: {st.session_state.count_reruns}")
-
 st.text_input("Entuer your username")
-
 st.toggle("Activate feature")
-
 st.selectbox("How would you like to be contacted?", 
              ("Email", "Home phone", "Mobile phone"))
 """

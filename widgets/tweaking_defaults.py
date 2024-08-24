@@ -3,6 +3,8 @@ import streamlit as st
  
 st.set_page_config(layout="wide")
 
+with open( "static/font.css" ) as css:
+    st.markdown( f'<style>{css.read()}</style>' , unsafe_allow_html= True)
 
 st.markdown("Default values are configurable for all widgets with a few special exceptions like <code>st.button</code> and <code>st.file_uploader</code>.", 
             unsafe_allow_html=True)

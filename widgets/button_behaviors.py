@@ -22,11 +22,11 @@ code = """import streamlit as st
 name_str = st.text_input("Enter your surname")
 submitted_bool = st.button("Submit")
 
-st.write(f"The return value of st.text_input is '{name_str}' of {type(name_str)}.")
-st.write(f"The return value of st.button is {submitted_bool} of {type(submitted_bool)}.")
+st.write(f"The return value of `st.text_input` is `'{name_str}'` of `{type(name_str)}`.")
+st.write(f"The return value of `st.button` is `{submitted_bool}` of `{type(submitted_bool)}`.")
 
 if submitted_bool:
-    st.write(name_str)
+    st.write(f"`'{name_str}'`")
 """
 st.markdown("#### :material/code_blocks: :blue[Source code to run]")
 with st.container(border=True):
@@ -37,13 +37,11 @@ with st.container(border=True):
     name_str = st.text_input("Enter your username")
     submitted_bool = st.button("Submit")
 
-    st.write(f"The return value of <code>st.text_input</code> is <code>'{name_str}'</code> of <code>{type(name_str)}</code>.",
-            unsafe_allow_html=True)
-    st.write(f"The return value of <code>st.button</code> is <code>{submitted_bool}</code> of <code>{type(submitted_bool)}</code>.", 
-            unsafe_allow_html=True)
+    st.write(f"The return value of `st.text_input` is `'{name_str}'` of `{type(name_str)}`.")
+    st.write(f"The return value of `st.button` is `{submitted_bool}` of `{type(submitted_bool)}`.")
 
     if submitted_bool:
-        st.write(f"<code>'{name_str}'</code>", unsafe_allow_html=True)
+        st.write(f"`'{name_str}'`")
 
 with st.expander("Explanation"):
     st.markdown("""Every time a widget gets updated on the screen, Streamlit ***reruns the entire Python script from top to bottom***.

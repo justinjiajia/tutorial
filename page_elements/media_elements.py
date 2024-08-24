@@ -12,7 +12,7 @@ with st.container(border=True):
         
 with st.container(border=True):
     with st.echo():
-        st.image("static/cat.jpg", width=400)
+        st.image("static/cat.jpg", width=300)
 
 with st.container(border=True):
     with st.echo():
@@ -37,7 +37,9 @@ with st.container(border=True):
 
 with st.container(border=True):
     with st.echo():
-        st.video("static/sora_gen.mp4", autoplay=True, muted=True, loop=True)
+        st.video("static/sora_gen.mp4", 
+                 start_time="5s", end_time="17s",
+                 autoplay=True, muted=True, loop=True)
 
 with st.expander("Show documentation"):
     st.write(st.video.__doc__)

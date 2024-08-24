@@ -130,7 +130,7 @@ There are two ways to initialize a state item in Session State:
 
 - First, it can be initialized through the first rendering of a widget associated with the key;
 
-- Second, we can manually assign an initial value to the key using a direct assignment.
+- Second, we can directly assign an initial value to the key using an assignment statement.
 """)
 
 code = """
@@ -138,14 +138,14 @@ code = """
 # otherwise, the state item resets every time the script reruns
 if "bucket_list" not in st.session_state:
     st.session_state["bucket_list"] = []
-    
-st.subheader("My Bucket List:")
 
-dest = st.text_input("Where do you want to travel?")
-clicked = st.button("Add to list")
+st.subheader(":rainbow[My Bucket List]")
 
-if clicked:
-    st.session_state.bucket_list.append(dest.capitalize())
+dest = st.text_input("Where do you want to travel?", 
+                     key="bucket_list_text")
+
+if st.button("Add to list", key="bucket_list_btn"):
+    st.session_state["bucket_list"].append(dest.title())
 
 st.write(st.session_state["bucket_list"] )
 """
@@ -163,14 +163,13 @@ with st.container(border=True):
     if "bucket_list" not in st.session_state:
         st.session_state["bucket_list"] = []
     
-    st.subheader("My Bucket List")
+    st.subheader(":rainbow[My Bucket List]")
 
-    dest = st.text_input("Where do you want to travel?")
-    clicked = st.button("Add to list")
+    dest = st.text_input("Where do you want to travel?", key="bucket_list_text")
 
-    if clicked:
-        st.session_state.bucket_list.append(dest.title())
+    if st.button("Add to list", key="bucket_list_btn"):
+        st.session_state["bucket_list"].append(dest.title())
         
     
-    st.write(st.session_state["bucket_list"] )
+    st.write(st.session_state["bucket_list"])
 

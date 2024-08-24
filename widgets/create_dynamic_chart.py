@@ -12,7 +12,7 @@ with open( "static/font.css" ) as css:
     st.markdown( f'<style>{css.read()}</style>' , unsafe_allow_html= True)
 
 
-st.markdown("## 🎯 A dynamic chart for stock price comparison")
+st.markdown("## 🎯 Dynamic charting for stock price comparison")
             
 st.markdown("### :material/dataset: Data to use")
 
