@@ -277,7 +277,7 @@ col3, col4 = st.columns(2)
 tips_x = col3.selectbox("Choose variable for coordinate x", ["sex", "day", "smoker", "time"])
 tips_y = col4.selectbox("Choose variable for coordinate y", ["total_bill", "tip", "size"])
 tips_color = st.selectbox("Choose variable for color", ["sex", "day", "smoker", "time"], index=None)
-tips_horizontal = st.checkbox("horizontal")
+tips_horizontal = st.checkbox("horizontal layout")
 
 
 if tips_color:

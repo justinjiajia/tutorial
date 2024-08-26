@@ -46,7 +46,7 @@ with st.container(border=True):
 st.divider()
 
 st.markdown("""
-Then, how can we share information across reruns of a Streamlit app? This is where [`st.session_state`](https://docs.streamlit.io/develop/concepts/architecture/session-state) comes to the rescue.
+Then, how can we share information across reruns of a Streamlit app? This is where [`Session State`](https://docs.streamlit.io/develop/concepts/architecture/session-state) comes to the rescue.
             
 As you may know, a session in the context of Web development refers to a way of maintaining state information about a user's interactions with a website or web application.
 
