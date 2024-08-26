@@ -121,7 +121,7 @@ st.divider()
 st.markdown("""<br/>
 
 Streamlit also allows us to customize the colors used for different categories with all built-in charting functions except `st.map()`.
-However, to leverage this color customization feature,  it's necessary to first transform the DataFrame into wide format.
+However, to leverage this color customization feature, we must first transform the DataFrame into wide format.
 
 In wide format, categories are no longer represented as distinct values within a single column (e.g., `total`).
 Rather, they are mapped into independent columns (e.g., `Gold`, `Silver`, and `Bronze`).
