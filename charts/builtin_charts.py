@@ -203,7 +203,7 @@ st.markdown("### :material/list_alt: [`st.scatter_chart()`](https://docs.streaml
 
 st.markdown("""<br/>
             
-A scatter chart uses the positioning of geometric shapes to visually epresent the values of two numeric variables in a data set.
+A scatter chart uses the positioning of geometric shapes to visually represent the values of two numeric variables in a data set.
             
 It proves particularly useful for revealing relationships between the variables and illustrating how data points are distributed across the plane formed by them.
             
