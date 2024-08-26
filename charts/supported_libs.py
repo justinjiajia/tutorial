@@ -44,9 +44,9 @@ st.markdown("### :material/list_alt: [`st.plotly_chart()`](https://docs.streamli
 
 st.markdown("""<br/>
 
-[Plotly](https://plotly.com/) is an interactive visualization library that many data scientists use to visualize data. This library is very similar to Streamlit in its intent and useful in creating interactive visuals and dashboards.
+[Plotly](https://plotly.com/) is an interactive visualization library that is popular among data scientists. This library is very similar to Streamlit in its intent and useful in creating interactive visuals and dashboards.
             
-Streamlit allows us to call plotly graphs from within Streamlit apps using the `st.plotly_chart()` function, making it a breeze to port any Plotly dashboards. 
+Streamlit allows us to call plotly graphs from within Streamlit apps using the `st.plotly_chart()` function, making it a breeze to port any Plotly visuals and dashboards. 
 """, unsafe_allow_html=True)
 
 

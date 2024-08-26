@@ -25,7 +25,7 @@ Essentially, data visualization is a process of expressing many aspects of our d
 
 st.markdown("""
 ---
-## Examples of data-to-aesthetic mapping
+## Examples of variable-to-aesthetic mapping
 <br/>
 <img src="https://raw.githubusercontent.com/justinjiajia/img/master/python/iris_datasets.png" width="80%"/>
 <br/>

@@ -148,28 +148,20 @@ st.write(medals_w)
 
 st.divider()
 
-chart_type = st.selectbox("Select chart type", ["Area", "Line"])
+type_text = st.selectbox("Select chart type", ["Area", "Line"])
+
+chart_type = {"Area": st.area_chart, "Line": st.line_chart}
 
 st.markdown("#### :material/code_blocks: :blue[Source code to run]")
 
-if chart_type == "Area":
-    code ="""
-    # "#A77044", "#FEE101", and "#A7A7AD" are the Hex color codes for Bronze, Gold, and Silver, respectively
-    # https://www.schemecolor.com/olympic-medals-color-scheme.php
 
-    st.area_chart(medals_w, x="year", y=['Bronze', 'Gold', 'Silver'], 
-                  color=["#A77044", "#FEE101", "#A7A7AD"], stack=True)
-    """
-else:
-    code ="""
-    # "#A77044", "#FEE101", and "#A7A7AD" are the Hex color codes for Bronze, Gold, and Silver, respectively
-    # https://www.schemecolor.com/olympic-medals-color-scheme.php
+code = f"""
+# "#A77044", "#FEE101", and "#A7A7AD" are the Hex color codes for Bronze, Gold, and Silver, respectively
+# https://www.schemecolor.com/olympic-medals-color-scheme.php
 
-    st.line_chart(medals_w, x="year", y=['Bronze', 'Gold', 'Silver'], 
-                  color=["#A77044", "#FEE101", "#A7A7AD"])
-    """
-
-
+st.{type_text.lower()}_chart(medals_w, x="year", y=['Bronze', 'Gold', 'Silver'], 
+              color=["#A77044", "#FEE101", "#A7A7AD"])
+"""
 
 with st.container(border=True):
     st.code(code)
@@ -179,15 +171,13 @@ st.markdown("#### :material/area_chart: :red[Rendered output]")
 # Streamlit chart functions sort column names automatically ; even if we put ['Gold', 'Silver', 'Bronze'], we still get these names sorted in dictionary order
 # "#A77044" is the color for Bronze; "#FEE101" is the color for gold
 with st.container(border=True):
-    if chart_type == "Area":
-        st.area_chart(medals_w, x="year", y=['Gold', 'Silver', 'Bronze'], color=["#A77044", "#FEE101", "#A7A7AD"], stack=True,
-                    width=720, height=500, use_container_width=False)
-    else:
-        st.line_chart(medals_w, x="year", y=['Gold', 'Silver', 'Bronze'], color=["#A77044", "#FEE101", "#A7A7AD"],
-                    width=720, height=500, use_container_width=False)
-
-
-
+    
+    chart_type[type_text](
+        medals_w, x="year", 
+        y=['Gold', 'Silver', 'Bronze'], 
+        color=["#A77044", "#FEE101", "#A7A7AD"],
+        width=720, height=500, use_container_width=False)
+ 
 
 st.divider()
 

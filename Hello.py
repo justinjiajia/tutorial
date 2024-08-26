@@ -1,10 +1,11 @@
 import streamlit as st
 
+text_elements = st.Page("page_elements/text_elements.py", title="Text and text formatting")
 data_elements = st.Page("page_elements/data_elements.py", title="Data elements")
 media_elements = st.Page("page_elements/media_elements.py", title="Media elements")
 
 visual_intro = st.Page("charts/visual_intro.py", title="Introduction to data visualization")
-native_charts = st.Page("charts/builtin_charting_functions.py", title="Built-in charting functions")
+builtin_charts = st.Page("charts/builtin_charts.py", title="Built-in charting functions")
 create_charts = st.Page("charts/create_charts.py", title="🎯Create charts")
 supported_libs = st.Page("charts/supported_libs.py", title="🚀Optional: Using external libraries")
 
@@ -38,16 +39,18 @@ count_reruns = st.Page("sessions/count_reruns.py", title="Counting reruns")
 
 caching_intro =  st.Page("caching/caching_intro.py", title="Introduction")
 data_caching =  st.Page("caching/data_caching.py", title="Data caching")
+resource_caching =  st.Page("caching/resource_caching.py", title="Resource caching")
 
 test = st.Page("test.py", title="Test")
 
-elements_pages = [data_elements, media_elements]
-charts_pages = [ visual_intro, native_charts, create_charts, supported_libs]
+elements_pages = [text_elements, data_elements, media_elements]
+charts_pages = [ visual_intro, builtin_charts, create_charts, supported_libs]
 widgets_pages = [widget_types, create_dynamic_chart, defaults, button, keys, value_init, callbacks, 
                  show_hide_message, display_image, advanced_todo_list, forms, cleanup]
 sessions_pages = [sessions, check_state_item, count_reruns, create_todo_list]
-caching_pages = [caching_intro, data_caching]
+caching_pages = [caching_intro, data_caching, resource_caching]
 layouts_pages = [sidebar, columns, containers, chat_UI, tabs]
+
 
 pg = st.navigation({"📑Page elements": elements_pages, 
                     "📊Charts": charts_pages, 

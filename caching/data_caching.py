@@ -51,10 +51,16 @@ st.markdown("### :material/list_alt: [`@st.cache_data`](https://docs.streamlit.i
 st.markdown(
 """<br/>
 
-To avoid repeated data computation across reruns, we can simply modularize relevant steps into a separate function
-and decorate it with the `@st.cache_data` decorator, telling Streamlit to store the function's return value in a cache.
+To prevent redudant data computations across reruns, we can simply modularize relevant steps into a separate function
+and decorate it with `@st.cache_data` (i.e., simply add the decorator on top of the `def` statement).
 
-As a result, subsequent calls to the function will skip function execution and return a copy of the cached value, thereby getting rid of redundant computations and improving overall performance.
+It tells Streamlit to associate this function with a cache and store the function's return value in it for each unique set of inputs.
+
+Conceptually, the cache acts like *an associative table*, mapping inputs to their corresponding outputs.
+
+On subsequent calls, if the inputs match a cached entry, Streamlit skips executing the function and get us a copy of the cached value,
+regardless of whether the calls originate from reruns or different user sessions.
+
 """, unsafe_allow_html=True)
 
 code ="""
@@ -104,7 +110,8 @@ st.write("Try a different URL: ")
 st.code("https://raw.githubusercontent.com/plotly/datasets/master/data.csv", language="markup")
 
 
-st.info("Cached values will be updated automatically as the function code changes, ensuring that the latest changes are reflected in the cache.")
+st.info("Cached values will be updated automatically as the function code changes, ensuring that the latest changes are reflected in the cache.",
+        icon="💡")
 
 
 
@@ -115,16 +122,22 @@ st.divider()
 
 st.markdown("""
 Cached values persist across user sessions and are available to all users of a Streamlit app. 
+""")
 
-If we need to save results that should only be accessible within a session, use Session State instead.
 
+st.info("To save results that should only be accessible within a session, use Session State instead.",
+        icon="💡")
+
+st.markdown("""
 We can clear a function's cache with `func.clear()` or clear the entire cache with `st.cache_data.clear()`.
 """)
 
 st.markdown("#### :material/code_blocks: :blue[Source code to run]")
 
 code = """
-if st.button("Clear cache"): load_data.clear()
+if st.button("Clear cache"): 
+    load_data.clear()
+    st.write("The cache associated with `load_data()` is cleared!")
 """
 
 
@@ -134,7 +147,9 @@ with st.container(border=True):
 st.markdown("#### :material/widgets: :red[Rendered output]")
 
 with st.container(border=True):
-    if st.button("Clear cache"): load_data.clear()
+    if st.button("Clear cache"): 
+        load_data.clear()
+        st.write("The cache associated with `load_data()` is cleared!")
  
 
 
