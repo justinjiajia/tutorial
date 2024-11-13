@@ -1,5 +1,7 @@
-import sys
 import streamlit as st
+
+with open( "static/font.css" ) as css:
+    st.markdown( f'<style>{css.read()}</style>', unsafe_allow_html= True)
 
 st.markdown("""
             ### A task that ensures you set up everything properly
