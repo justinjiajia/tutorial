@@ -103,6 +103,7 @@ with st.container(border=True):
 with st.container(border=True):
     with st.echo():
         st.markdown("e.g., :orange[text to be colored], :rainbow-background[decorate text with a background color]")  
+        st.markdown("All supported colors:  :blue[blue], :green[green], :orange[orange], :red[red], :violet[violet], :gray[gray], :rainbow[rainbow]")
 
 """###### Allow for HTML"""
 
