@@ -1,8 +1,13 @@
 import streamlit as st
 
-
-
 st.set_page_config(layout="wide")
+
+with st.echo():
+    import streamlit as st
+
+
+
+
 
 with open( "static/font.css" ) as css:
     st.markdown( f'<style>{css.read()}</style>', unsafe_allow_html= True)
@@ -64,7 +69,7 @@ with st.container(border=True):
             | Bold    | \**bold text**        |
             | Italic  | \*italicized text*    |
 
-            > Check out [Markdown Cheat Sheet](https://www.markdownguide.org/cheat-sheet/) for a quick reference 
+            > Check out [Markdown Cheat Sheet](https://www.markdownguide.org/cheat-sheet/) for a quick reference. 
         """
         st.markdown(passage)
 
