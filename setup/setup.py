@@ -93,7 +93,7 @@ st.divider()
 
 st.markdown("""
 
-### Access to the source code
+### Access the source code
             
 If you have a GitHub account, you can fork this [repository](https://github.com/justinjiajia/tutorial), which contains all source code for this tutorial.
             
