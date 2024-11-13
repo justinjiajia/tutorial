@@ -1,7 +1,7 @@
 import streamlit as st
 
 
-setup = st.Page("setup/setup.py", title="Setup Instructions")
+setup = st.Page("setup/setup.py", title="Setup guild")
 
 text_elements = st.Page("page_elements/text_elements.py", title="Text and text formatting")
 data_elements = st.Page("page_elements/data_elements.py", title="Data elements")
