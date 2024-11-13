@@ -80,6 +80,32 @@ st.markdown("""
 st.divider()
 
 st.markdown("""
+
+### How to save a page as a PDF
+            
+<img src="https://raw.githubusercontent.com/justinjiajia/img/refs/heads/master/python/streamlit_pdf.png" width=200 />            
+            
+""", unsafe_allow_html=True
+)            
+
+
+st.divider()
+
+st.markdown("""
+
+### Access to the source code
+            
+If you have a GitHub account, you can fork this [repository](https://github.com/justinjiajia/tutorial), which contains all source code for this tutorial.
+            
+    
+"""
+)   
+
+st.divider()
+
+
+
+st.markdown("""
 ### References
 
 - [Visual Studio Code User Interface](https://code.visualstudio.com/docs/getstarted/userinterface)
