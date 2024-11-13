@@ -56,7 +56,7 @@ caching_pages = [caching_intro, data_caching, resource_caching]
 layouts_pages = [sidebar, columns, containers, chat_UI, tabs]
 
 
-pg = st.navigation({"Setup": setup_pages,
+pg = st.navigation({"⚙️Setup": setup_pages,
                     "📑Page elements": elements_pages, 
                     "📊Charts": charts_pages, 
                     "📱Widgets": widgets_pages,
