@@ -77,5 +77,16 @@ st.markdown("""
             """, unsafe_allow_html=True)
 
 
- 
+st.divider()
+
+st.markdown("""
+## References:
+
+- [Visual Studio Code User Interface](https://code.visualstudio.com/docs/getstarted/userinterface)
+            
+- [Python in Visual Studio Code](https://code.visualstudio.com/docs/languages/python)
+            
+- [Streamlit online documentation](https://docs.streamlit.io/)
+            
+""")
 
