@@ -21,7 +21,7 @@ with st.echo():
 
 st.divider()
 
-st.markdown("### [<code>st.dataframe</code>](https://docs.streamlit.io/develop/api-reference/data/st.dataframe)", unsafe_allow_html=True)
+st.markdown("### :material/list_alt: [`st.dataframe()`](https://docs.streamlit.io/develop/api-reference/data/st.dataframe)")
 
 with st.container(border=True):
     with st.echo():
@@ -32,7 +32,7 @@ with st.expander("Show documentation"):
     
 st.divider()
 
-st.markdown("### [<code>st.table</code>](https://docs.streamlit.io/develop/api-reference/data/st.table)", unsafe_allow_html=True)
+st.markdown("### :material/list_alt: [`st.table()`](https://docs.streamlit.io/develop/api-reference/data/st.table)")
 
 with st.container(border=True):
     with st.echo():
@@ -46,7 +46,7 @@ st.divider()
 
 
 
-st.markdown("### [<code>st.data_editor</code>](https://docs.streamlit.io/develop/api-reference/data/st.data_editor)", unsafe_allow_html=True)
+st.markdown("### :material/list_alt: [`st.data_editor()`](https://docs.streamlit.io/develop/api-reference/data/st.data_editor)")
 
 with st.container(border=True):
     with st.echo():
@@ -74,7 +74,7 @@ with st.echo():
 st.divider()
 
 
-st.markdown("### [<code>st.column_config</code>](https://docs.streamlit.io/develop/api-reference/data/st.column_config)", unsafe_allow_html=True)
+st.markdown("### :material/list_alt: [`st.column_config()`](https://docs.streamlit.io/develop/api-reference/data/st.column_config)")
 
 
 st.markdown("""The `st.column_config` class is a powerful tool for configuring data display and interaction.
