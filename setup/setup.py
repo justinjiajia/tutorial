@@ -80,7 +80,7 @@ st.markdown("""
 st.divider()
 
 st.markdown("""
-## References:
+### References
 
 - [Visual Studio Code User Interface](https://code.visualstudio.com/docs/getstarted/userinterface)
             
