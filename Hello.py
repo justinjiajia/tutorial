@@ -1,5 +1,8 @@
 import streamlit as st
 
+
+setup = st.Page("setup/setup.py", title="Setup Instructions")
+
 text_elements = st.Page("page_elements/text_elements.py", title="Text and text formatting")
 data_elements = st.Page("page_elements/data_elements.py", title="Data elements")
 media_elements = st.Page("page_elements/media_elements.py", title="Media elements")
@@ -43,6 +46,7 @@ resource_caching =  st.Page("caching/resource_caching.py", title="Resource cachi
 
 test = st.Page("test.py", title="Test")
 
+setup_pages = [setup]
 elements_pages = [text_elements, data_elements, media_elements]
 charts_pages = [ visual_intro, builtin_charts, create_charts, supported_libs]
 widgets_pages = [widget_types, create_dynamic_chart, defaults, button, keys, value_init, callbacks, 
@@ -52,7 +56,8 @@ caching_pages = [caching_intro, data_caching, resource_caching]
 layouts_pages = [sidebar, columns, containers, chat_UI, tabs]
 
 
-pg = st.navigation({"📑Page elements": elements_pages, 
+pg = st.navigation({"Setup": setup_pages,
+                    "📑Page elements": elements_pages, 
                     "📊Charts": charts_pages, 
                     "📱Widgets": widgets_pages,
                     "🕓Sessions": sessions_pages, 
