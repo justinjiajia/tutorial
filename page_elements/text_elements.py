@@ -119,6 +119,22 @@ with st.expander("Show documentation"):
     st.write(st.markdown.__doc__)
 
 
+
+st.divider()
+
+st.markdown("### :material/list_alt: [`st.html()`](https://docs.streamlit.io/develop/api-reference/utilities/st.html)")
+
+with st.container(border=True):
+    with st.echo():
+        st.html(
+            "<p><span style='text-decoration: line-through double red;'>Oops</span>!</p>"
+        )
+
+with st.expander("Show documentation"):
+    st.write(st.html.__doc__)
+
+
+
 st.divider()
 
 st.markdown("### :material/list_alt: [`st.code()`](https://docs.streamlit.io/develop/api-reference/text/st.code)")
@@ -151,19 +167,6 @@ with st.expander("Show documentation"):
     st.write(st.code.__doc__)
 
 
-
-st.divider()
-
-st.markdown("### :material/list_alt: [`st.html()`](https://docs.streamlit.io/develop/api-reference/utilities/st.html)")
-
-with st.container(border=True):
-    with st.echo():
-        st.html(
-            "<p><span style='text-decoration: line-through double red;'>Oops</span>!</p>"
-        )
-
-with st.expander("Show documentation"):
-    st.write(st.html.__doc__)
 
 
 
