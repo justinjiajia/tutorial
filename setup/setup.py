@@ -16,7 +16,11 @@ st.markdown("""
             
                 - Navigate to a proper folder (perhaps the folder you use to save your class materials) and create a new folder within it (suggested name: *streamlit_project*);
             
-                - **❗Important**: Click to open the new folder and choose <kbd>Select Folder</kbd> on Windows or <kbd>Open</kbd> on Mac computers;
+                - **❗Important**
+            
+                    - On Windows, click to open the new folder and choose <kbd>Select Folder</kbd>;
+            
+                    - On Mac computers, since you are already inside the newly created folder, simply click <kbd>Open</kbd>;
             
                 - Download [*translator_app.py*](https://canvas.ust.hk/courses/58723/files/9731498) from Canvas;
             
