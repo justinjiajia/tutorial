@@ -84,7 +84,10 @@ st.markdown("""
             
             7. Stop a running app
 
-                - Switch to the terminal session 
+                - Switch to the terminal session where the app is running
+            
+                - Press <kbd>Ctrl + C</kbd> on Windows or  <kbd>Control + C</kbd> on Mac computers
+
             """, unsafe_allow_html=True)
 
 
