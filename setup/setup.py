@@ -82,6 +82,9 @@ st.markdown("""
                   streamlit run setup_manual.py --server.port 8502
                   ```
             
+            7. Stop a running app
+
+                - Switch to the terminal session 
             """, unsafe_allow_html=True)
 
 
