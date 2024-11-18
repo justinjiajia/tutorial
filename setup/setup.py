@@ -20,7 +20,7 @@ st.markdown("""
             
                     - On Windows, click to open the new folder and choose <kbd>Select Folder</kbd>;
             
-                    - On Mac computers, since you are already inside the newly created folder, simply click <kbd>Open</kbd>;
+                    - On Mac computers, since you are already inside the new folder, simply click <kbd>Open</kbd>;
             
                 - Download [*translator_app.py*](https://canvas.ust.hk/courses/58723/files/9731498) from Canvas;
             
