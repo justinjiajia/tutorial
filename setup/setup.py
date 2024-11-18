@@ -68,7 +68,7 @@ st.markdown("""
                   
                   - Approach 1: Choose <kbd>Terminal</kbd> →  <kbd>New Terminal</kbd>
             
-                  - Approach 2: Choose a shell from the popped menu (Windows users: PowerShell or Command Prompt; Mac users: Git Bash)
+                  - Approach 2: Choose a shell from the popped menu (Windows users: PowerShell or Command Prompt; Mac users: zsh)
                   
                     <img src="https://code.visualstudio.com/assets/docs/terminal/basics/select-profile-dropdown.png" width=500/><br/>
             
