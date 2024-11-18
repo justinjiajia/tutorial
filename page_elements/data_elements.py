@@ -95,9 +95,8 @@ with st.container(border=True):
             df, 
             column_config={"name": "App name",
                            "url": st.column_config.LinkColumn("App URL"),
-                           "stars": st.column_config.NumberColumn("Stars", help="Number of stars on GitHub", format="%d ⭐"),
-                           "views_history": st.column_config.BarChartColumn("Views", y_min=0, y_max=5000, 
-                                                                              help="Number of views in the past 30 days"),
+                           "stars": st.column_config.NumberColumn("Stars", format="%d ⭐"),
+                           "views_history": st.column_config.BarChartColumn("Views", y_min=0, y_max=5000),
                            "in_progress": "In progress?"},
             hide_index=True,
             column_order=("name", "url", "views_history", "stars", "in_progress")
@@ -110,10 +109,8 @@ with st.container(border=True):
             df, 
             column_config={"name": "App name",
                            "url": st.column_config.LinkColumn("App URL", disabled=True),
-                           "stars": st.column_config.ProgressColumn("Stars", help="Number of stars on GitHub", 
-                                                                    max_value=1000, format="%d ⭐"),
-                           "views_history": st.column_config.LineChartColumn("Views", y_min=0, y_max=5000, 
-                                                                              help="Number of views in the past 30 days"),
+                           "stars": st.column_config.ProgressColumn("Stars", max_value=1000, format="%d ⭐"),
+                           "views_history": st.column_config.LineChartColumn("Views", y_min=0, y_max=5000),
                            "in_progress": st.column_config.SelectboxColumn("In progress?")}
         )
 
