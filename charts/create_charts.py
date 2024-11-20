@@ -54,7 +54,7 @@ with st.container(border=True):
     
     st.markdown(f"### Stock prices")
     st.line_chart(stocks, x="date", y="price", color="symbol", 
-                    width=800, height=500, use_container_width=False)
+                  width=800, height=500, use_container_width=False)
     
 
 st.divider()

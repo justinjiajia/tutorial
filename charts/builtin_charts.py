@@ -311,7 +311,7 @@ with st.expander("Show documentation"):
 
 st.divider()
 
-st.markdown("### :material/dataset: Data to use")
+st.markdown("### :material/dataset: Data to use (Optional)")
 
 
 code = """
