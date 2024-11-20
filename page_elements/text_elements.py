@@ -199,6 +199,8 @@ with st.container(border=True):
         st.subheader("Setup Instructions")
 
         st.caption("This page illustrates various text and formatting commands availableis in Streamlit.")
+        
+        st.error("This is an error! Here are the causes: ...")
 
         st.latex(r'''a + ar + a r^2 + \cdots + a r^{n-1} = a \left(\frac{1-r^{n}}{1-r}\right)''')
 
