@@ -101,7 +101,8 @@ stack = st.toggle("Stack medals", value=True)
 st.markdown("#### :material/code_blocks: :blue[Source code to run]")
 
 code =f"""
-st.area_chart(medals, x="year", y="total", color="type", stack={stack})
+st.area_chart(medals, x="year", y="total", color="type", stack={stack},
+              width=720, height=500)
 """
 
 with st.container(border=True):
