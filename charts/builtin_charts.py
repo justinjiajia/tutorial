@@ -164,7 +164,7 @@ code = f"""
 
 st.{type_text.lower()}_chart(medals_w, x="year", y=['Bronze', 'Gold', 'Silver'], 
               color=["#A77044", "#FEE101", "#A7A7AD"],
-              width=720, height=500, )
+              width=720, height=500)
 """
 
 with st.container(border=True):
@@ -224,11 +224,13 @@ iris_color = st.checkbox("Use color to annotate species")
 
 if iris_size:
     code = f"""
-    st.scatter_chart(iris, x="{iris_x}", y="{iris_y}", size="{iris_size}"{', color="species"' if iris_color else ""})
+    st.scatter_chart(iris, x="{iris_x}", y="{iris_y}", size="{iris_size}"{', color="species"' if iris_color else ""},
+                     width=720, height=500)
     """
 else:
     code = f"""
-    st.scatter_chart(iris, x="{iris_x}", y="{iris_y}"{', color="species"' if iris_color else ""})
+    st.scatter_chart(iris, x="{iris_x}", y="{iris_y}"{', color="species"' if iris_color else ""}, 
+                     width=720, height=500)
     """
 
 st.markdown("#### :material/code_blocks: :blue[Source code to run]")
