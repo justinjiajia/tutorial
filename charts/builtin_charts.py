@@ -126,7 +126,7 @@ st.markdown("""<br/>
 Streamlit also allows us to customize the colors used for different categories with all built-in charting functions except `st.map()`.
 However, to leverage this color customization feature, we must first transform the DataFrame into wide format.
 
-In wide format, categories are no longer represented as distinct values within a single column (e.g., `total`).
+In wide format, categories are no longer represented as distinct values within a single column (e.g., `type`).
 Rather, they are mapped into independent columns (e.g., `Gold`, `Silver`, and `Bronze`).
 """, unsafe_allow_html=True) 
 
@@ -163,7 +163,8 @@ code = f"""
 # https://www.schemecolor.com/olympic-medals-color-scheme.php
 
 st.{type_text.lower()}_chart(medals_w, x="year", y=['Bronze', 'Gold', 'Silver'], 
-              color=["#A77044", "#FEE101", "#A7A7AD"])
+              color=["#A77044", "#FEE101", "#A7A7AD"],
+              width=720, height=500, )
 """
 
 with st.container(border=True):
