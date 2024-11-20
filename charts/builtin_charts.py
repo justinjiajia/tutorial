@@ -277,9 +277,11 @@ st.divider()
 st.markdown("### :material/list_alt: [`st.bar_chart()`](https://docs.streamlit.io/develop/api-reference/charts/st.bar_chart)")
 
 st.markdown("""<br/>
-            A bar chart presents categorical data with rectangular bars with heights or lengths proportional to the values that they represent. 
-            It is useful for illustrating how data is distributed across different categories.
-            <br/>            
+
+A bar chart presents categorical data with rectangular bars with heights or lengths proportional to the values that they represent. 
+It is useful for illustrating how data is distributed across different categories.
+
+<br/>
 """, unsafe_allow_html=True)
 
 
