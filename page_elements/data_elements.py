@@ -12,7 +12,7 @@ with st.echo():
         {
             "name": ["Roadmap", "Extras", "Issues"],
             "url": ["https://roadmap.streamlit.app", "https://extras.streamlit.app", "https://issues.streamlit.app"],
-            "stars": [842, 503, 938],
+            "likes": [842, 503, 938],
             "in_progress": [True, False, True]
         }
     )
