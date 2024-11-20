@@ -31,7 +31,8 @@ medals = pd.read_csv(
 
 st.code(code)
 
-medals = load_to_df('https://raw.githubusercontent.com/justinjiajia/datafiles/main/medals.csv', parse_dates=['year']).query("country == 'China'")    
+medals = load_to_df('https://raw.githubusercontent.com/justinjiajia/datafiles/main/medals.csv', 
+                    parse_dates=['year']).query("country == 'China'")    
 
 
 st.write(medals)
@@ -52,7 +53,7 @@ If we align `color` with a categorical variable (i.e., a column that contains di
 st.markdown("#### :material/code_blocks: :blue[Source code to run]")
 
 code ="""
-st.line_chart(medals, x="date", y="return", color="symbol")
+st.line_chart(medals, x="year", y="total", color="type")
 """
 
 with st.container(border=True):
