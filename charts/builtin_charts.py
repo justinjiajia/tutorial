@@ -278,9 +278,9 @@ st.markdown("### :material/list_alt: [`st.bar_chart()`](https://docs.streamlit.i
 
 st.markdown("""<br/>
 
-A bar chart presents categorical data with rectangular bars with heights or lengths proportional to the values that they represent. 
+A bar chart presents categorical data with rectangular bars, whose heights (lengths) are proportional to the values that they represent. 
 
-This type of chart is useful for illustrating how data is distributed across different categories.
+This type of chart is useful for comparing a measure of interest across different categories.
 
 <br/>
 """, unsafe_allow_html=True)
