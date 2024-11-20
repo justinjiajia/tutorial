@@ -223,7 +223,7 @@ with st.expander("Show documentation"):
     st.write(st.toggle.__doc__)
 st.divider()
 
-st.markdown("### Widgets that return date/time values")
+st.markdown("### Widgets that return date/time values (Optional)")
 
 st.markdown("### :material/list_alt: [`st.time_input()`](https://docs.streamlit.io/develop/api-reference/widgets/st.time_input)")
 
