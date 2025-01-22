@@ -22,7 +22,7 @@ st.markdown("""
             
                     - On Mac computers, since you are already inside the new folder, simply click <kbd>Open</kbd>;
             
-                - Download [*translator_app.py*](https://canvas.ust.hk/courses/58723/files/9731498) from Canvas;
+                - Download *translator_app.py* from Canvas;
             
                 - Put the *.py* file into the folder you just created;
             
@@ -64,7 +64,7 @@ st.markdown("""
               
                 - You can run as many apps as you want simultaneously. But they must use different ports. 
 
-                - Download [*setup_manual.py*](https://canvas.ust.hk/courses/58723/files/9739042) from Canvas;
+                - Download *setup_manual.py* from Canvas;
             
                 - Put it into your project folder;
             
