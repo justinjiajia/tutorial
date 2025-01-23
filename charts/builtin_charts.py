@@ -123,6 +123,8 @@ st.divider()
 
 st.markdown("""<br/>
 
+### Customize colors (Optional)
+
 Streamlit also allows us to customize the colors used for different categories with all built-in charting functions except `st.map()`.
 However, to leverage this color customization feature, we must first transform the DataFrame into wide format.
 
