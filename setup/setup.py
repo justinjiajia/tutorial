@@ -28,15 +28,20 @@ st.markdown("""
             
                 - Click to open the file from the Explorer panel
             
-            3. Ensure a Python interpreter to be selected
+            3. Make sure to select the correct Python interpreter
 
-               - You should see **3.XX.X('base':conda)** at the right corner of the status bar;
+               - Make sure the Python extension is installed in your VS Code;
+                 <br/>
+
+                 <img src="https://raw.githubusercontent.com/justinjiajia/img/master/python/python_extension.png" width="300" /> 
+                 <br/>
+
+               - Type <kbd>></kbd> in the search bar at the top and choose **Python: Select Interpreter** from the dropdown menu;
+               
+               - Select the interpreter that comes bundled with Anaconda from the Command Palette;
+                  - Something starting with "Python 3.XX.XX ('base') *~\\<some path>\\anaconda3\\python.exe*"
             
-               - If you see a "Select Interpreter" warning as follows <br/><br/>
-                 <img src="https://code.visualstudio.com/assets/docs/python/environments/no-interpreter-selected-statusbar.png" width="300" /> <br/><br/>
-                 click it and select the interpreter shipped with Anaconda (path: *~\\anaconda3\\python.exe*) from the Command Palette that appears at the top;
-             
-               - If you want to use a different interpreter, type <kbd>></kbd> in the search bar at the top and choose **Python: Select Interpreter** from the dropdown menu
+ 
             
             4. Use system commands
 
