@@ -345,7 +345,7 @@ code = """
 st.map(us_city_pop, latitude="lat", longitude="lon", size="pop")
 """
 
-st.markdown("### :material/list_alt: [`st.map()`](https://docs.streamlit.io/develop/api-reference/charts/st.map)")
+st.markdown("### :material/list_alt: [`st.map()`](https://docs.streamlit.io/develop/api-reference/charts/st.map) (Optional)")
 
 st.markdown("<br/>", unsafe_allow_html=True)
 
