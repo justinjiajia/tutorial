@@ -17,7 +17,7 @@ st.markdown("""Streamlit `columns` are containers laid out as side-by-side colum
 st.markdown("""Calling the `st.columns()` function returns a list of column objects.
 
 
-To add elements to the returned container, we can use the `with` statement (preferred) or just call methods directly on the returned object.""")
+To add elements to the returned container, we can use the `with` statement (preferred) or just call functions directly on the returned object.""")
 
 
 
