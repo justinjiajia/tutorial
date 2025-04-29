@@ -19,7 +19,7 @@ Passing an element to `st.sidebar` positions it to the left of the main viewport
 <br> <br>
 
 We can organize page elements into a sidebar by
-1) Calling methods directly on `st.sidebar`;
+1) Calling element functions directly on `st.sidebar`;
 2) Wrapping element functions within `st.sidebar` using `with` notation.""", unsafe_allow_html=True)
 
 
@@ -40,7 +40,7 @@ st.area_chart(chart_data, x="date", y="price")"""
 
 st.markdown("#### :material/code_blocks: :blue[Source code to run]")
 
-st.markdown("Call methods directly on `st.sidebar`:")
+st.markdown("Call element functions directly on `st.sidebar`:")
 
 with st.container(border=True):
     st.code(code)
