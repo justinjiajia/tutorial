@@ -54,7 +54,7 @@ end_date = datetime(selected_years[1], 12, 31)
 # Load data
 data = load_data(selected_tickers, start_date, end_date)
 
-if not data:
+if data.empty():
     st.warning("No data retrieved")
     st.stop()
 
