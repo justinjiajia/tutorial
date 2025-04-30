@@ -2,21 +2,9 @@ import streamlit as st
 import yfinance as yf
 import pandas as pd
 from datetime import datetime
+ 
 
-# Load stock data
-@st.cache_data
-def load_data(tickers, start_date, end_date):
-    data = yf.download(tickers, start=start_date, end=end_date)
-    return data
-
-# Default settings
-DEFAULT_TICKERS = ['AAPL', 'GOOG', 'MSFT', 'AMZN']
-CURRENT_YEAR = datetime.today().year
-
-
-
-
-
+st.set_page_config(page_title="Stock Dashboard", layout="wide")
 st.markdown("""### :material/description:  Requirements
 
 Download the [starter code](https://raw.githubusercontent.com/justinjiajia/img/refs/heads/master/python/dashboard_template.py) and fill your code in the indicated place to create a simple stock performance dashboard using Streamlit.
@@ -28,6 +16,17 @@ st.divider()
 st.markdown("#### :material/widgets: :red[Expected output]")
 
 st.divider()
+
+
+# Load stock data
+@st.cache_data
+def load_data(tickers, start_date, end_date):
+    data = yf.download(tickers, start=start_date, end=end_date)
+    return data
+
+# Default settings
+DEFAULT_TICKERS = ['AAPL', 'GOOG', 'MSFT', 'AMZN']
+CURRENT_YEAR = datetime.today().year
 
 # Configure page
 st.title("Simple Stock Performance Dashboard 📊")
@@ -78,9 +77,8 @@ if selected_tickers:
     
     # Statistics
     st.subheader("Key Statistics")
-    col1, col2  = st.columns(2)
+    col1, col2 = st.columns(2)
     
- 
     
     with col1:
         annual_returns = close_prices.pct_change(365).iloc[-1].mean() * 100
@@ -101,7 +99,7 @@ else:
 # Data download
 st.sidebar.download_button(
     "Download Closing Prices",
-    data=data['Close'].to_csv().encode('utf-8'),
+    data=close_prices.to_csv().encode('utf-8'),
     file_name='stock_prices.csv',
     mime='text/csv'
 )
