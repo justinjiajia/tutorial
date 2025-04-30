@@ -19,9 +19,10 @@ st.divider()
 
 
 # Load stock data
-@st.cache_data
+@st.cache_data(ttl=3600, show_spinner="Downloading data...")
 def load_data(tickers, start_date, end_date):
-    data = yf.download(tickers, start=start_date, end=end_date)
+    data = yf.download(tickers, start=start_date, end=end_date, 
+                       progress=False, timeout=10  ) 
     return data
 
 # Default settings
@@ -55,7 +56,7 @@ end_date = datetime(selected_years[1], 12, 31)
 data = load_data(selected_tickers, start_date, end_date)
 
 if data.empty:
-    st.warning("No data retrieved")
+    st.warning("No data fetched!")
     st.stop()
 
 
