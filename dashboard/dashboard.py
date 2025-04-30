@@ -19,6 +19,7 @@ st.divider()
 
 
 # Load stock data
+@st.cache_data
 def load_data(tickers, start_date, end_date):
     data = yf.download(tickers, start=start_date, end=end_date)
     return data
@@ -52,7 +53,7 @@ end_date = datetime(selected_years[1], 12, 31)
 
 # Load data
 data = load_data(selected_tickers, start_date, end_date)
-
+st.write(data)
 
 # Main dashboard
 if selected_tickers:
