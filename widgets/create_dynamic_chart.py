@@ -19,7 +19,7 @@ st.markdown("### :material/dataset: Data to use")
 code = """
 import pandas as pd
 
-stokcs = pd.read_csv(
+stocks = pd.read_csv(
     "https://raw.githubusercontent.com/vega/vega-datasets/main/data/stocks.csv", 
     parse_dates=['date'], date_format="%b %d %Y"
     ).query(f"date < 2010 and date >= 2005")
