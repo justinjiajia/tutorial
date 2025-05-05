@@ -43,7 +43,7 @@ st.markdown("""### :material/description:  Requirements
 - Tips:
     - Recall how `st.line_chart()` allows us to align variables with desired aesthetics;
     - [`DataFrame.query()`](https://pandas.pydata.org/docs/user_guide/indexing.html#the-query-method) can be used to filter data for plotting, 
-        - e.g., if your variable that holds the selected stocks is called `stocks` and that holds the specified year is called `year`, `.query(f"date < {year + 1} and date >= {year} and symbol in {symbols}")` will give you the desired subset.
+        - e.g., if your variable that holds the selected stocks is called `symbols` and that holds the specified year is called `year`, `.query(f"date < {year + 1} and date >= {year} and symbol in {symbols}")` will give you the desired subset.
 """)
 
 st.divider()
