@@ -3,8 +3,7 @@ import pandas as pd
 import yfinance as yf
 
 ticker = yf.Ticker("AAPL")
-
-st.write(ticker.info)
+ 
 
 
 # ticker.info.get('longName')
@@ -36,7 +35,7 @@ for ticker in symbol_list:
 
 
 ticker_info_df = pd.DataFrame({'Ticker': symbol_list, 'Company':name_list, 'Sector':sector_list, 'Market Cap (B)': market_cap_list})
-# ticker_info_df.to_csv('ticker_info.csv')    
+ticker_info_df.to_csv('ticker_info.csv')    
 
 
 start_date = "2020-01-01"
@@ -52,6 +51,6 @@ stock_data = yf.download(
 # This transformation converts stock data from a wide format (where each ticker is a column) into a long format (where each ticker's data is in separate rows).
 long_stock_data = (stock_data.stack(level='Ticker')  # Stack the ticker level; stock_data has a MultiIndex (hierarchical index) where one of the levels is 'Ticker'. stack() pivots the specified level ('Ticker') from columns into rows, making the DataFrame longer (more rows, fewer columns).
              .reset_index()        # After stacking, the DataFrame has a new index structure. reset_index() converts all index levels into regular columns, making it easier to work with the data.
-             .rename(columns={'level_1': 'Ticker'})) 
+             .rename(columns={'level_1': 'Ticker'}))  # When stacking and resetting, the stacked column might get a default name like 'level_1'. This renames that column back to 'Ticker' for clarity.
 
 st.write(long_stock_data)
