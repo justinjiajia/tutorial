@@ -60,7 +60,6 @@ st.divider()
 
 st.markdown("#### :material/widgets: :red[Expected output]")
 
-st.divider() 
 
 # Default settings
 DEFAULT_TICKERS = ['AAPL', 'GOOG', 'MSFT', 'AMZN']
