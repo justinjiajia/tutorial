@@ -56,7 +56,7 @@ caching_pages = [caching_intro, data_caching, resource_caching]
 layouts_pages = [sidebar, columns, containers, chat_UI, tabs]
 
 exercise = st.Page("dashboard/dashboard.py", title="In-class exercise 5")
-exercise_test = st.Page("dashboard/dashboard_1.py", title="In-class exercise test")
+
 
 pg = st.navigation({"⚙️Setup": setup_pages,
                     "📑Page elements": elements_pages, 
@@ -65,7 +65,7 @@ pg = st.navigation({"⚙️Setup": setup_pages,
                     "🕓Sessions": sessions_pages, 
                     "🗃️Caching":  caching_pages,
                     "📰Layouts": layouts_pages, 
-                    "📋In-class exercise": [exercise, exercise_test],
+                    "📋In-class exercise": [exercise],
                     "Test": [test]})
 
 pg.run()
