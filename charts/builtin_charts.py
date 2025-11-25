@@ -164,8 +164,8 @@ code = f"""
 # "#A77044", "#FEE101", and "#A7A7AD" are the Hex color codes for Bronze, Gold, and Silver, respectively
 # https://www.schemecolor.com/olympic-medals-color-scheme.php
 
-st.{type_text.lower()}_chart(medals_w, x="year", y=['Bronze', 'Gold', 'Silver'], 
-              color=["#A77044", "#FEE101", "#A7A7AD"],
+st.{type_text.lower()}_chart(medals_w, x="year", y=['Gold', 'Silver', 'Bronze'], 
+              color=["#FEE101", "#A7A7AD", "#A77044"],
               width=720, height=500)
 """
 
@@ -181,7 +181,7 @@ with st.container(border=True):
     chart_type[type_text](
         medals_w, x="year", 
         y=['Gold', 'Silver', 'Bronze'], 
-        color=["#A77044", "#FEE101", "#A7A7AD"],
+        color=["#FEE101", "#A7A7AD", "#A77044"],
         width=720, height=500, use_container_width=False)
  
 
