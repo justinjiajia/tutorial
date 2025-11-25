@@ -110,7 +110,7 @@ with st.container(border=True):
 with st.container(border=True):
     with st.echo():
         st.markdown("<a href='www.ust.hk'>HKUST</a><br/><br/>"
-                    "<img src='https://brand.hkust.edu.hk/sites/default/files/2023-07/files/images/HKUST-Logo-Icon.svg'/>"
+                    "<img src='https://geco.hkust.edu.hk/files/image_2.png'/>"
                     "<hr/>ISOM Department",
                     unsafe_allow_html=True)  
 
