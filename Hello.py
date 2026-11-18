@@ -17,7 +17,7 @@ create_dynamic_chart = st.Page("widgets/create_dynamic_chart.py", title="🎯Cre
 defaults = st.Page("widgets/tweaking_defaults.py", title="Tweaking defaults")
 button = st.Page("widgets/button_behaviors.py", title="Button behaviors")
 keys = st.Page("widgets/widget_keys.py", title="Widget keys")
-value_init = st.Page("widgets/value_init.py", title="Initializing values via Session State")
+value_init = st.Page("widgets/value_init.py", title="🚀Optional: Initializing values via Session State")
 callbacks = st.Page("widgets/callbacks.py", title="Callbacks")
 chat = st.Page("widgets/chat.py", title="Chat")
 display_image = st.Page("widgets/display_image.py", title="🎯Display image based on user input")
