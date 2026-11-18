@@ -70,7 +70,7 @@ During a rerun triggered by updating the text field, the button widget's value h
 
 st.divider()
 
-st.markdown("To ensure a clicked button to continue to be `True`, we can add a separate item to `st.session_state` and use the button to set that item to `True`:")
+st.markdown("To preserve the `True` state of a clicked button across reruns, we can create an independent variable in `st.session_state` and set it to `True` via the button:")
 
 st.markdown("#### :material/code_blocks: :blue[Source code to run]")
 code = """# the key arguments are primarily used for distinguishing identical widgets on this page
