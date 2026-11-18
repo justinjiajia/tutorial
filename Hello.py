@@ -19,6 +19,7 @@ button = st.Page("widgets/button_behaviors.py", title="Button behaviors")
 keys = st.Page("widgets/widget_keys.py", title="Widget keys")
 value_init = st.Page("widgets/value_init.py", title="Initializing values via Session State")
 callbacks = st.Page("widgets/callbacks.py", title="Callbacks")
+chat = st.Page("widgets/chat.py", title="Chat")
 show_hide_message = st.Page("widgets/show_hide_message.py", title="🎯Show and hide message")
 display_image = st.Page("widgets/display_image.py", title="🎯Display image based on user input")
 forms = st.Page("widgets/forms.py", title="Forms")
@@ -50,7 +51,7 @@ setup_pages = [setup]
 elements_pages = [text_elements, data_elements, media_elements]
 charts_pages = [ visual_intro, builtin_charts, create_charts, supported_libs]
 widgets_pages = [widget_types, create_dynamic_chart, defaults, button, keys, value_init, callbacks, 
-                 show_hide_message, display_image, advanced_todo_list, forms, cleanup]
+                 chat, show_hide_message, display_image, advanced_todo_list, forms, cleanup]
 sessions_pages = [sessions, check_state_item, count_reruns, create_todo_list]
 caching_pages = [caching_intro, data_caching, resource_caching]
 layouts_pages = [sidebar, columns, containers, chat_UI, tabs]

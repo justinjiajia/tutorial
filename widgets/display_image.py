@@ -6,7 +6,7 @@ st.set_page_config(layout="centered")
 with open( "static/font.css" ) as css:
     st.markdown( f'<style>{css.read()}</style>' , unsafe_allow_html= True)
 
-st.markdown("""## Display an image based on user input 
+st.markdown("""## 🎯 Display an image based on user input 
             
 ### :material/description:  Requirements
             
