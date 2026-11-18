@@ -39,9 +39,16 @@ def render_selectbox(index):
 def render_radio(index):
     with st.container(height=400):
         st.write("##### :blue[Source code to run:]")
-        st.code(f"""st.radio("What's your favorite movie genre?",
+
+        code_snippet = f"""st.radio("What's your favorite movie genre?",
          ["Comedy", "Drama", "Documentary"],
-         index={index})""")   
+         index={index})"""
+        
+        st.markdown(f"<pre style='font-size: 8px;'><code>{code_snippet}</code></pre>",
+    unsafe_allow_html=True)
+        #st.code(f"""st.radio("What's your favorite movie genre?",
+        # ["Comedy", "Drama", "Documentary"],
+        # index={index})""")   
         st.divider()
         st.session_state.radio = radio_dict[index]
 
