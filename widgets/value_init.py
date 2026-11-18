@@ -80,7 +80,7 @@ The sequence of events upon an app's initial load is the same as described above
 
 st.divider()
 
-st.markdown("### Caveats to note")
+st.markdown("### Caveats to note (Optional)")
 
 st.markdown("- Setting a widget's value via `st.session_state` and using the `value` argument in the widget function at the same time is not recommended, and will throw a warning when the app is first started.")
 
