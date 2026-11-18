@@ -1,5 +1,5 @@
 import streamlit as st
-
+from streamlit_extras.stylable_container import stylable_container
  
 st.set_page_config(layout="wide")
 
@@ -40,15 +40,27 @@ def render_radio(index):
     with st.container(height=400):
         st.write("##### :blue[Source code to run:]")
 
+        # Your code snippet as a string
         code_snippet = f"""st.radio("What's your favorite movie genre?",
-         ["Comedy", "Drama", "Documentary"],
-         index={index})"""
+            ["Comedy", "Drama", "Documentary"],
+            index={index})"""
+
+        # Wrap st.code in a stylable container and apply CSS to the <code> tag
+        with stylable_container(
+            key="small_code_block",
+            css_styles="""
+                code {
+                    font-size: 0.5rem !important;  /* Adjust this value */
+                }
+            """,
+        ):
         
-        st.markdown(f"<pre style='font-size: 4px;'><code>{code_snippet}</code></pre>",
-    unsafe_allow_html=True)
-        #st.code(f"""st.radio("What's your favorite movie genre?",
+            st.code(code_snippet, language="python")
+        
+        # st.code(f"""st.radio("What's your favorite movie genre?",
         # ["Comedy", "Drama", "Documentary"],
         # index={index})""")   
+        
         st.divider()
         st.session_state.radio = radio_dict[index]
 
