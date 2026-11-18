@@ -59,7 +59,7 @@ with st.container(border=True):
 
     if clicked: st.write(f"**Message:** {message}")
 
-st.markdown("***Question: Why does updating the text field cause the message to the disappear?***")
+st.markdown("***Question: Why does updating the text field cause the message to disappear?***")
 
 with st.expander("Explanation"):
     st.markdown("""The button widget has an ephemeral value of `True` only for a single run after being clicked.
@@ -107,14 +107,14 @@ with st.container(border=True):
     if st.session_state.btn_1_clicked:
         st.write(f"**Message:** {st.session_state.txt_1}")
 
-st.markdown("`st.session_state.btn_1_clicked` remains `True` throughout this user session (i.e., connection).")
+st.markdown("`st.session_state.btn_1_clicked` remains `True` throughout this user session.")
 
 st.markdown("***Question: Why can't we simply use `st.session_state.btn_1` to govern the execution of `st.write()`?***")
 
 with st.expander("Explanation"):
-    st.markdown("""The value of `st.session_state.btn_1` is inherently coupled with the button widget's backend value. Like the widget, this state item can only hold a value of `True` temporarily.
+    st.markdown("""The value of `st.session_state.btn_1` is directly tied to the button widget's internal state. Just like the widget itself, this value is temporary and resets to `False` after the rerun.
 
-In contrast, `st.session_state.btn_1_clicked` is an independent item and won't be affected by the value of the button widget.
+In contrast, `st.session_state.btn_1_clicked` is an independent variable that remains unaffected by the button widget's state.
 """)
                 
 
@@ -123,7 +123,7 @@ st.divider()
 
 st.markdown("""What if we want to show the input message above?
 
-Can we simply advance the `if` statement that encloses `st.write()` as follows?
+Can we simply move the `if` statement wrapping `st.write()` to an earlier position in the code, as follows?
 """)
 
 
@@ -170,19 +170,21 @@ with st.container(border=True):
 st.markdown("***Question: Clicking the button doesn't display the message right away. Why doesn't it work as intended?***")
 
 with st.expander("Explanation"):
-    st.markdown("""Clicking the button triggers a rerun of the script from the beginning. When the if test that wraps `st.write()` is reached, `st.session_state.btn_2_clicked` is still `False`. This session state item gets set to `True` near the end of this rerun.
+    st.markdown("""Clicking the button triggers a rerun of the script from the beginning. 
+    When execution reaches the if statement wrapping `st.write()`, `st.session_state.btn_2_clicked` is still `False`. 
+    It only gets set to `True`  later in the script, near the end of the rerun.
 """)
 
 st.divider()
 
 
-st.markdown("""The problem would be solved if setting `st.session_state.btn_2_clicked` to `True` occurred before the rerun of the script or even as soon as the button gets clicked.  
+st.markdown("""
+Ideally, we would set `st.session_state.btn_2_clicked` to `True` before the script reruns — essentially, the moment the button is clicked.
 
-This is where a callback function comes in handy.
+That's where callback functions come to the rescue. A callback executes the moment its associated widget is updated, taking place before the script reruns.
+
+You can implement a callback by passing the `on_change` (or `on_click`) argument to your widget:
             
-A callback function gets executed as soon as its associated widget gets updated, prior to a rerun of the script.
-            
-We can use the argument `on_change` (or `on_click`) of a widget function to implement a callback:
 
 - `on_change` or `on_click` takes the function name to be used as a callback;
   
@@ -251,7 +253,7 @@ def send_msg_1():
     st.session_state.msg = st.session_state.txt_4
 
 if st.session_state.btn_4_clicked:
-        st.write(f"**Message:** {st.session_state.msg}")
+    st.write(f"**Message:** {st.session_state.msg}")
 
 st.text_input("Enter your message", key="txt_4", placeholder="hey, what's up?", 
               label_visibility="collapsed")

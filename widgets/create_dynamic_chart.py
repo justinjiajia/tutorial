@@ -40,19 +40,23 @@ st.divider()
 
 st.markdown("""### :material/description:  Requirements
 
-- Include a multiselect widget (`st.multiselect()`) to choose which stocks should be included for plotting;
+- Add a multiselect widget (`st.multiselect()`) to choose which stocks to include in the plot.  
  
-- Include a slider widget (`st.slider()`) to indicate a specific year over which stocks are compared;
+- Add a slider widget (`st.slider()`) to select a specific year for comparison.
 
-- Include a checkbox widget (`st.checkbox()`) to indicate if the user wants to compare stocks for the whole period. The slider widget should be disabled when this widget is checked.
+- Add a checkbox widget (`st.checkbox()`) to compare stocks over the entire period. When checked, the slider widget should be disabled.
 
-- When none of the stocks are selected, display an error message, saying "Please select at least one stock!";
+- If no stocks are selected, use `st.error()` to display the error message: `"Please select at least one stock!"`
             
-- Tips:
-    - Recall how `st.line_chart()` allows us to align variables with desired aesthetics;
-    - [`DataFrame.query()`](https://pandas.pydata.org/docs/user_guide/indexing.html#the-query-method) can be used to filter data for plotting, 
-        - e.g., if your variable that holds the selected stocks is called `symbols` and that holds the specified year is called `year`, `.query(f"date < {year + 1} and date >= {year} and symbol in {symbols}")` will give you the desired subset.
-    - Use the [`disabled`](https://docs.streamlit.io/develop/api-reference/widgets/st.slider) option of `st.slider()` to control when to disable the slider.
+#### Tips:
+
+- Chart aesthetics: Use `st.line_chart()` to map your variables to specific visual aesthetics.
+
+- Data filtering: Use [`DataFrame.query()`](https://pandas.pydata.org/docs/user_guide/indexing.html#the-query-method) to filter data before plotting. For example, if your selected stocks are stored in symbols and the chosen year is in year, this query will return the correct subset:
+`.query(f"date < {year + 1} and date >= {year} and symbol in {symbols}")`
+
+- Disabling widgets: Use the [`disabled`](https://docs.streamlit.io/develop/api-reference/widgets/st.slider) parameter of `st.slider()` to control when the slider is inactive (e.g., tie it to the state of your checkbox).
+
 """)
 
 st.divider()
