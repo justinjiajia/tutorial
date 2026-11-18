@@ -44,7 +44,7 @@ def render_radio(index):
          ["Comedy", "Drama", "Documentary"],
          index={index})"""
         
-        st.markdown(f"<pre style='font-size: 8px;'><code>{code_snippet}</code></pre>",
+        st.markdown(f"<pre style='font-size: 4px;'><code>{code_snippet}</code></pre>",
     unsafe_allow_html=True)
         #st.code(f"""st.radio("What's your favorite movie genre?",
         # ["Comedy", "Drama", "Documentary"],
