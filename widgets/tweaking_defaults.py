@@ -96,7 +96,7 @@ def render_multiselect(options):
     with st.container(height=400):
         st.write("##### :blue[Source code to run:]")
         code = f"""st.multiselect("What are your favorite colors?",
-               ["Green", "Yellow", "Red", "Blue"]
+               ["Green", "Yellow", "Red", "Blue"],
 """
         
         if options:
@@ -112,10 +112,7 @@ def render_multiselect(options):
 
 
 
-col5, _ = st.columns(2)
-
-with col5:
-    render_multiselect(st.session_state["selected_options"])
+render_multiselect(st.session_state["selected_options"])
     
 st.divider()
 
