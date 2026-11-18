@@ -23,7 +23,7 @@ st.markdown("""## 🎯 Display an image based on user input
 
 - Accessing widget values: To read a widget's value inside a callback, give it a key and access it via `st.session_state (e.g., st.session_state._url)`.
 
-- Error handling: Wrap `st.image()` in a `try...except` block to catch invalid URLs and display a custom `st.error()` instead of crashing.
+- Error handling: Wrap `st.image()` in a `try...except` block to catch invalid URLs and display a custom [`st.error()`](https://docs.streamlit.io/develop/api-reference/status/st.error) instead of crashing.
 
 """)
 
