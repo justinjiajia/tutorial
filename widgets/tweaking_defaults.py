@@ -1,10 +1,12 @@
 import streamlit as st
-from streamlit_extras.stylable_container import stylable_container
+
  
 st.set_page_config(layout="wide")
 
 with open( "static/font.css" ) as css:
     st.markdown( f'<style>{css.read()}</style>' , unsafe_allow_html= True)
+
+
 
 st.markdown("Default values are configurable for all widgets with a few special exceptions like <code>st.button</code> and <code>st.file_uploader</code>.", 
             unsafe_allow_html=True)
@@ -13,11 +15,20 @@ st.markdown("The defaults of selectbox widgets and radio button widgets can be s
             unsafe_allow_html=True)
 
 
-st.markdown("##### Set the <code>index</code> argument:", unsafe_allow_html=True)
-option_index = st.number_input("Set the index argument:", min_value=0, max_value=2, value=None, label_visibility="collapsed")
+col1, col2 = st.columns([1, 2], vertical_alignment="center")
+with col1:
+    st.markdown("##### Set the <code>index</code> argument:", unsafe_allow_html=True)
+
+with col2:    
+    option_index = st.number_input("Set the index argument:", min_value=0, max_value=2, value=None, label_visibility="collapsed")
+
+
 selectbox_dict = {0: "Email", 1: "Home phone", 2: "Mobile phone", None: None}
 radio_dict = {0: "Comedy", 1: "Drama", 2: "Documentary", None: None}
- 
+
+
+
+
 def render_selectbox(index):
     with st.container(height=400):
         st.write("##### :blue[Source code to run:]")
@@ -39,27 +50,11 @@ def render_selectbox(index):
 def render_radio(index):
     with st.container(height=400):
         st.write("##### :blue[Source code to run:]")
-
+        
         # Your code snippet as a string
-        code_snippet = f"""st.radio("What's your favorite movie genre?",
-            ["Comedy", "Drama", "Documentary"],
-            index={index})"""
-
-        # Wrap st.code in a stylable container and apply CSS to the <code> tag
-        with stylable_container(
-            key="small_code_block",
-            css_styles="""
-                code {
-                    font-size: 0.5rem !important;  /* Adjust this value */
-                }
-            """,
-        ):
-        
-            st.code(code_snippet, language="python")
-        
-        # st.code(f"""st.radio("What's your favorite movie genre?",
-        # ["Comedy", "Drama", "Documentary"],
-        # index={index})""")   
+        st.code(f"""st.radio("What's your favorite movie genre?",
+         ["Comedy", "Drama", "Documentary"],
+         index={index})""")   
         
         st.divider()
         st.session_state.radio = radio_dict[index]
@@ -72,12 +67,12 @@ def render_radio(index):
             key="radio"
         )
 
-col1, col2 = st.columns(2)
+col3, col4 = st.columns(2)
 
-with col1:
+with col3:
     render_selectbox(option_index)
 
-with col2:
+with col4:
     render_radio(option_index)
 
 st.divider()
@@ -85,18 +80,21 @@ st.divider()
 st.markdown("The default of a multiselect widget can be configured via the widget function's <code>default</code> argument:", 
             unsafe_allow_html=True)
 
-st.markdown("##### Set the <code>default</code> argument:", unsafe_allow_html=True)
+col5, col6, col7, _ = st.columns([2, 1, 1, 2], vertical_alignment="center")
+
+with col5:
+    st.markdown("##### Set the <code>default</code> argument:", unsafe_allow_html=True)
 
 if "selected_options"  not in st.session_state:
     st.session_state["selected_options"] = []
 
-col3, col4, *_ = st.columns(5)
+ 
 
-with col3:
+with col6:
     green = st.checkbox("Green")
     red = st.checkbox("Red")
 
-with col4:    
+with col7:    
     yellow = st.checkbox("Yellow")
     blue = st.checkbox("Blue")
 
@@ -141,14 +139,19 @@ st.markdown("The defaults of most of the other widegets can be configured via th
 st.markdown("For widget functions such as <code>st.slider</code> and <code>st.number_input</code>, the defaults can also affect the functionality of the rendered widegets.", 
             unsafe_allow_html=True)
 
-st.markdown("##### Set the <code>value</code> argument:", unsafe_allow_html=True)
 
-selected_value = st.selectbox("Set the value argument:", 
+col8, col9 = st.columns([1, 2], vertical_alignment="center")
+
+with col8:
+    st.markdown("##### Set the <code>value</code> argument:", unsafe_allow_html=True)
+
+with col9:
+    selected_value = st.selectbox("Set the value argument:", 
                               [10, 0.5, 5.0], 
                               label_visibility="collapsed")
  
 
-col6, col7 = st.columns(2)
+
 
 def render_number_input(value):
     with st.container(height=400):
@@ -172,8 +175,10 @@ def render_slider(value):
 
         st.slider("Choose a number", value=value, key="slider")
 
-with col6:
+col10, col11 = st.columns(2)
+
+with col10:
     render_number_input(selected_value) 
 
-with col7:
+with col11:
     render_slider(selected_value)    
