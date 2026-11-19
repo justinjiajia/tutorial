@@ -96,7 +96,7 @@ with st.container(border=True):
     st.code(code)
     
 st.markdown("#### :material/monitor: :red[Rendered output]")
-W
+
 with st.container(border=True):    
     st.markdown(f"The value of variable `x` is: `{st.session_state.a}`")       
     st.write(f"The value of variable `y` is: `{st.session_state["b"]}`")   
