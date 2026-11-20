@@ -14,7 +14,7 @@ st.markdown("""`st.container` allows us to inserts an invisible container into o
 
 
 
-st.markdown("""Calling the `st.columns()` function returns a list of column objects.
+st.markdown("""Calling the `st.container()` function inserts an invisible container into our app that can be used to hold multiple elements. 
 
 
 To add elements to the returned container, we can use the `with` statement (preferred) or just call functions directly on the returned object.""")
