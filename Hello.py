@@ -33,7 +33,7 @@ containers = st.Page("layouts/containers.py", title="Containers")
 
 chat_UI = st.Page("layouts/chat_UI.py", title="🎯Create improved chat UI")
 
-tabs = st.Page("layouts/tabs.py", title="Tabs")
+tabs = st.Page("🚀Optional: layouts/tabs.py", title="Tabs")
 
 
 sessions = st.Page("sessions/sessions.py", title="Sessions and Session State")
