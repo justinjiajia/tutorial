@@ -54,7 +54,7 @@ widgets_pages = [widget_types, create_dynamic_chart, defaults, button, keys, val
                  chat, display_image, forms, cleanup, show_hide_message, advanced_todo_list]
 sessions_pages = [sessions, check_state_item, count_reruns, create_todo_list]
 caching_pages = [caching_intro, data_caching, resource_caching]
-layouts_pages = [sidebar, columns, containers, chat_UI, tabs]
+layouts_pages = [sidebar, columns, containers, tabs, chat_UI]
 
 exercise = st.Page("dashboard/dashboard.py", title="In-class exercise 5")
 
