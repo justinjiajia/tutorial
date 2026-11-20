@@ -50,8 +50,8 @@ test = st.Page("test.py", title="Test")
 setup_pages = [setup]
 elements_pages = [text_elements, data_elements, media_elements]
 charts_pages = [ visual_intro, builtin_charts, create_charts, supported_libs]
-widgets_pages = [widget_types, create_dynamic_chart, defaults, button, keys, value_init, callbacks, 
-                 chat, display_image, forms, cleanup, show_hide_message, advanced_todo_list]
+widgets_pages = [widget_types, create_dynamic_chart, defaults, button, keys, value_init, chat,  callbacks, 
+                 display_image, forms, cleanup, show_hide_message, advanced_todo_list]
 sessions_pages = [sessions, check_state_item, count_reruns, create_todo_list]
 caching_pages = [caching_intro, data_caching, resource_caching]
 layouts_pages = [sidebar, columns, containers, tabs, chat_UI]
