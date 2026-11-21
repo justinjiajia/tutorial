@@ -57,7 +57,7 @@ caching_pages = [caching_intro, data_caching, resource_caching]
 layouts_pages = [sidebar, columns, containers, tabs, chat_UI]
 
 exercises = st.Page("exercises/exercises.py", title="In-class exercise 5")
-answers = st.Page("exercises/answers.py", title="answers to in-class exercise 5")
+answer = st.Page("exercises/answer.py", title="answers to in-class exercise 5")
 
 pg = st.navigation({"⚙️Setup": setup_pages,
                     "📑Page elements": elements_pages, 
@@ -66,7 +66,7 @@ pg = st.navigation({"⚙️Setup": setup_pages,
                     "🕓Sessions": sessions_pages, 
                     "🗃️Caching":  caching_pages,
                     "📰Layouts": layouts_pages, 
-                    "📋In-class exercise": [exercises, answers],
+                    "📋In-class exercise": [exercises],
                     # "Test": [test]
                     })
 
